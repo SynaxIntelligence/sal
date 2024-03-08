@@ -1,0 +1,38 @@
+
+@startuml
+!include variables.puml
+
+' hide the spot
+' hide circle
+
+!theme _none_
+title Message schema
+top to bottom direction
+skinparam linetype ortho
+skinparam ClassAttributeFontSize 10
+
+entity comments {
+   *id: bigint
+   *message_id: bigint <<FK>>
+   comment: text
+}
+entity message {
+   *id: bigint
+   type: text
+   number: text
+   status: text
+   date_create: timestamp
+   type_mess: text
+}
+entity receivers {
+   *id: bigint
+   *message_id: bigint <<FK>>
+   user_login: text
+   date_read: timestamp
+   is_read: boolean
+   full_name: text
+}
+
+comments }|..|| message
+receivers }|..|| message
+@enduml

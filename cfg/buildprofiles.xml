@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<buildprofiles xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/build-profiles.xsd"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <variables>
+        <primary-color>blueberry</primary-color>
+        <custom-favicons>eksc_logo_small_O1O_icon.ico</custom-favicons>
+        <header-logo>EKSC_logo_cube.png</header-logo>
+        <product-web-url>http://172.30.48.103:8099</product-web-url>
+        <download-title>ЕКСЦ</download-title>
+        <download-page>http://172.30.48.103:8099</download-page>
+        <showDownloadButton>true</showDownloadButton>
+        <versions-switcher>http://127.0.0.1:59153/1147_zdocs/help-versions.json</versions-switcher>
+    </variables>
+
+    <build-profile instance="0.1">
+        <variables>
+            <noindex-content>true</noindex-content>
+        </variables>
+    </build-profile>
+    <footer>
+
+    </footer>
+
+    <build-profile instance="hi">
+        <variables>
+            <noindex-content>true</noindex-content>
+        </variables>
+    </build-profile>
+</buildprofiles>

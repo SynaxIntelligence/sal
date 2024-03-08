@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rules SYSTEM "https://resources.jetbrains.com/writerside/1.0/redirection-rules.dtd">
+<rules>
+    <!-- format is as follows
+    <rule id="<unique id>">
+        <accepts>page.html</accepts>
+    </rule>
+    -->
+    <rule id="18a58376">
+        <description>Created after removal of "How to" from Help Instance</description>
+        <accepts>How-to.html</accepts>
+    </rule>
+    <rule id="30411586">
+        <description>Created after removal of "Starter" from Base</description>
+        <accepts>Starter.html</accepts>
+    </rule>
+    <rule id="3b579103">
+        <description>Created after removal of "Directories" from Base</description>
+        <accepts>directories.html</accepts>
+    </rule>
+    <rule id="76fec3f2">
+        <description>Created after removal of "Role Model" from Base</description>
+        <accepts>role-model.html</accepts>
+    </rule>
+    <rule id="642f774e">
+        <description>Created after removal of "Directories" from Base</description>
+        <accepts>Directories.html</accepts>
+    </rule>
+    <rule id="71f1dcd5">
+        <description>Created after removal of "Role Model" from Base</description>
+        <accepts>Modules.html</accepts>
+    </rule>
+    <rule id="7434ec6c">
+        <description>Created after removal of "Аутентификация" from ЕКСЦ</description>
+        <accepts>Authentication.html</accepts>
+    </rule>
+    <rule id="1978edf">
+        <description>Created after removal of "Overview2" from ЕКСЦ Документы</description>
+        <accepts>Overview2.html</accepts>
+    </rule>
+    <rule id="a31f1b5">
+        <description>Created after removal of "Документация" from ЕКСЦ Документы</description>
+        <accepts>Документация.html</accepts>
+    </rule>
+    <rule id="20c2701f">
+        <description>Created after removal of "Спецификация REST API" from ЕКСЦ Документы</description>
+        <accepts>API-role.html</accepts>
+    </rule>
+    <rule id="61244a24">
+        <description>Created after removal of "Спецификация REST API" from ЕКСЦ Документы</description>
+        <accepts>API-directory.html</accepts>
+    </rule>
+    <rule id="4bedcacc">
+        <description>Created after removal of "Starter" from ЕКСЦ Документы</description>
+        <accepts>Starter.html</accepts>
+    </rule>
+    <rule id="51f4a74d">
+        <description>Created after removal of "Спецификация REST API SSE" from ЕКСЦ Документы</description>
+        <accepts>Спецификация-REST-API-SSE.html</accepts>
+    </rule>
+    <rule id="44af66bd">
+        <description>Created after removal of "How to" from ЕКСЦ Документы</description>
+        <accepts>How-to.html</accepts>
+    </rule>
+</rules>

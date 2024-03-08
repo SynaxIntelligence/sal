@@ -1,0 +1,563 @@
+
+@startjson
+{
+    "domains": {
+        "2TQjzyTUprq6R2xa7X86": {
+            "id": "2TQjzyTUprq6R2xa7X86",
+            "name": "Default domain"
+        }
+    },
+    "flows": {
+        "Pn1njNdvvQSyJ0WCzdPi": {
+            "id": "Pn1njNdvvQSyJ0WCzdPi",
+            "name": "Flow 1",
+            "showConnectionNames": false,
+            "steps": {}
+        }
+    },
+    "modelConnections": {
+        "QAWI4ff2xt9sLqcoJbw9": {
+            "description": "",
+            "direction": "outgoing",
+            "id": "QAWI4ff2xt9sLqcoJbw9",
+            "name": "Sends data to",
+            "originId": "gRJz5el74rIDqoITth1w",
+            "status": "live",
+            "tagIds": [],
+            "targetId": "z9Yw138LIinu1VF3Cwv2",
+            "technologies": {}
+        },
+        "YKvRBvo85tHy1IEkgaRi": {
+            "description": "",
+            "direction": "outgoing",
+            "id": "YKvRBvo85tHy1IEkgaRi",
+            "name": "Sends data to",
+            "originId": "v0TxebvQ94rbJBI49LSP",
+            "status": "live",
+            "tagIds": [],
+            "targetId": "01o4HdC0cODZz6AhkrCW",
+            "technologies": {}
+        },
+        "acFSsGQAi94rVNLT62BY": {
+            "description": "",
+            "direction": "outgoing",
+            "id": "acFSsGQAi94rVNLT62BY",
+            "name": "SDP",
+            "originId": "jd2KvxrElkFxoLJFfHSJ",
+            "status": "live",
+            "tagIds": [],
+            "targetId": "bbKFXbGI0OlS8w27FMTn",
+            "technologies": {}
+        },
+        "bOuR6UgHuL3lT2aa1UgH": {
+            "description": "",
+            "direction": "outgoing",
+            "id": "bOuR6UgHuL3lT2aa1UgH",
+            "name": "Sends data to",
+            "originId": "bPFPv7aoQBvA3EnfX1FU",
+            "status": "live",
+            "tagIds": [],
+            "targetId": "KyjaApuhGgWRmz5ZKAg6",
+            "technologies": {}
+        },
+        "d4o60WMQNaHJQOnPugj0": {
+            "description": "",
+            "direction": "outgoing",
+            "id": "d4o60WMQNaHJQOnPugj0",
+            "name": "KSC MTR SO",
+            "originId": "bbKFXbGI0OlS8w27FMTn",
+            "status": "live",
+            "tagIds": [],
+            "targetId": "jd2KvxrElkFxoLJFfHSJ",
+            "technologies": {}
+        },
+        "uQFKjGbRiSGPfqZTolzl": {
+            "description": "",
+            "direction": "outgoing",
+            "id": "uQFKjGbRiSGPfqZTolzl",
+            "name": "Sends requests to",
+            "originId": "2VLqa09A71f2YxzBgozm",
+            "status": "live",
+            "tagIds": [],
+            "targetId": "bbKFXbGI0OlS8w27FMTn",
+            "technologies": {}
+        },
+        "uYBiQWpdpqROsXjo8LCV": {
+            "description": "",
+            "direction": "outgoing",
+            "id": "uYBiQWpdpqROsXjo8LCV",
+            "name": "Sends data to",
+            "originId": "01o4HdC0cODZz6AhkrCW",
+            "status": "live",
+            "tagIds": [],
+            "targetId": "lxQ6FxCEdP6zjS8W7SqY",
+            "technologies": {}
+        },
+        "yLae8RbG6nWg2nGeZtzs": {
+            "description": "",
+            "direction": "outgoing",
+            "id": "yLae8RbG6nWg2nGeZtzs",
+            "name": "KSC MTR",
+            "originId": "jd2KvxrElkFxoLJFfHSJ",
+            "status": "live",
+            "tagIds": [],
+            "targetId": "bbKFXbGI0OlS8w27FMTn",
+            "technologies": {}
+        }
+    },
+    "modelObjects": {
+        "01o4HdC0cODZz6AhkrCW": {
+            "caption": "",
+            "description": "",
+            "domainId": "2TQjzyTUprq6R2xa7X86",
+            "external": false,
+            "icon": {
+                "catalogTechnologyId": "M8wTWhwNJfsMnYw8s7Os",
+                "name": "Spring",
+                "url": "https://icon.icepanel.io/devicons/png-128/spring.png"
+            },
+            "id": "01o4HdC0cODZz6AhkrCW",
+            "links": {},
+            "name": "eksc-directory",
+            "parentId": "bbKFXbGI0OlS8w27FMTn",
+            "parentIds": [
+                "bbKFXbGI0OlS8w27FMTn",
+                "bIv8T2urcrApnGmG404t"
+            ],
+            "status": "live",
+            "tagIds": [],
+            "teamIds": [],
+            "technologies": {
+                "4QZq23Fxy9oyoCTmURM6": {
+                    "iconUrlDark": "https://icon.icepanel.io/devicons/png-128-dark/docker.png",
+                    "iconUrlLight": "https://icon.icepanel.io/devicons/png-128-light/docker.png",
+                    "color": "blue",
+                    "provider": null,
+                    "name": "Docker",
+                    "index": 2,
+                    "iconUrl": "https://icon.icepanel.io/devicons/png-128/docker.png",
+                    "id": "4QZq23Fxy9oyoCTmURM6",
+                    "type": null,
+                    "nameShort": "Docker"
+                },
+                "M8wTWhwNJfsMnYw8s7Os": {
+                    "color": "green",
+                    "provider": null,
+                    "name": "Spring",
+                    "index": 0,
+                    "id": "M8wTWhwNJfsMnYw8s7Os",
+                    "iconUrl": "https://icon.icepanel.io/devicons/png-128/spring.png",
+                    "type": null,
+                    "nameShort": "Spring"
+                },
+                "dpVdzSv0Dt4GylOqnnQg": {
+                    "color": "beaver",
+                    "provider": null,
+                    "name": "Hibernate",
+                    "index": 1,
+                    "id": "dpVdzSv0Dt4GylOqnnQg",
+                    "iconUrl": "https://icon.icepanel.io/devicons/png-128/hibernate.png",
+                    "type": null,
+                    "nameShort": "Hibernate"
+                }
+            },
+            "type": "app"
+        },
+        "2VLqa09A71f2YxzBgozm": {
+            "caption": "",
+            "description": "",
+            "domainId": "2TQjzyTUprq6R2xa7X86",
+            "external": false,
+            "icon": null,
+            "id": "2VLqa09A71f2YxzBgozm",
+            "links": {},
+            "name": "Actor",
+            "parentId": "bIv8T2urcrApnGmG404t",
+            "parentIds": [
+                "bIv8T2urcrApnGmG404t"
+            ],
+            "status": "live",
+            "tagIds": [],
+            "teamIds": [],
+            "technologies": {},
+            "type": "actor"
+        },
+        "KyjaApuhGgWRmz5ZKAg6": {
+            "caption": "",
+            "description": "",
+            "domainId": "2TQjzyTUprq6R2xa7X86",
+            "external": false,
+            "icon": {
+                "catalogTechnologyId": "M8wTWhwNJfsMnYw8s7Os",
+                "name": "Spring",
+                "url": "https://icon.icepanel.io/devicons/png-128/spring.png"
+            },
+            "id": "KyjaApuhGgWRmz5ZKAg6",
+            "links": {},
+            "name": "eksc-message",
+            "parentId": "bbKFXbGI0OlS8w27FMTn",
+            "parentIds": [
+                "bbKFXbGI0OlS8w27FMTn",
+                "bIv8T2urcrApnGmG404t"
+            ],
+            "status": "live",
+            "tagIds": [],
+            "teamIds": [],
+            "technologies": {
+                "4QZq23Fxy9oyoCTmURM6": {
+                    "iconUrlDark": "https://icon.icepanel.io/devicons/png-128-dark/docker.png",
+                    "iconUrlLight": "https://icon.icepanel.io/devicons/png-128-light/docker.png",
+                    "color": "blue",
+                    "provider": null,
+                    "name": "Docker",
+                    "index": 2,
+                    "iconUrl": "https://icon.icepanel.io/devicons/png-128/docker.png",
+                    "id": "4QZq23Fxy9oyoCTmURM6",
+                    "type": null,
+                    "nameShort": "Docker"
+                },
+                "M8wTWhwNJfsMnYw8s7Os": {
+                    "color": "green",
+                    "provider": null,
+                    "name": "Spring",
+                    "index": 0,
+                    "iconUrl": "https://icon.icepanel.io/devicons/png-128/spring.png",
+                    "id": "M8wTWhwNJfsMnYw8s7Os",
+                    "type": null,
+                    "nameShort": "Spring"
+                },
+                "dpVdzSv0Dt4GylOqnnQg": {
+                    "color": "beaver",
+                    "provider": null,
+                    "name": "Hibernate",
+                    "index": 1,
+                    "iconUrl": "https://icon.icepanel.io/devicons/png-128/hibernate.png",
+                    "id": "dpVdzSv0Dt4GylOqnnQg",
+                    "type": null,
+                    "nameShort": "Hibernate"
+                }
+            },
+            "type": "app"
+        },
+        "bIv8T2urcrApnGmG404t": {
+            "caption": "",
+            "description": "",
+            "domainId": "2TQjzyTUprq6R2xa7X86",
+            "external": false,
+            "icon": null,
+            "id": "bIv8T2urcrApnGmG404t",
+            "links": {},
+            "name": "",
+            "parentId": null,
+            "parentIds": [],
+            "status": "live",
+            "tagIds": [],
+            "teamIds": [],
+            "technologies": {},
+            "type": "root"
+        },
+        "bPFPv7aoQBvA3EnfX1FU": {
+            "caption": "",
+            "description": "",
+            "domainId": "2TQjzyTUprq6R2xa7X86",
+            "external": false,
+            "icon": {
+                "catalogTechnologyId": "AtAwOo48GPChCWOkPkkj",
+                "urlDark": "https://icon.icepanel.io/devicons/png-128-dark/postgresql.png",
+                "name": "PostgreSQL",
+                "urlLight": "https://icon.icepanel.io/devicons/png-128-light/postgresql.png",
+                "url": "https://icon.icepanel.io/devicons/png-128/postgresql.png"
+            },
+            "id": "bPFPv7aoQBvA3EnfX1FU",
+            "links": {},
+            "name": "1147_message",
+            "parentId": "bbKFXbGI0OlS8w27FMTn",
+            "parentIds": [
+                "bbKFXbGI0OlS8w27FMTn",
+                "bIv8T2urcrApnGmG404t"
+            ],
+            "status": "live",
+            "tagIds": [],
+            "teamIds": [],
+            "technologies": {
+                "AtAwOo48GPChCWOkPkkj": {
+                    "iconUrlDark": "https://icon.icepanel.io/devicons/png-128-dark/postgresql.png",
+                    "iconUrlLight": "https://icon.icepanel.io/devicons/png-128-light/postgresql.png",
+                    "color": "dark-blue",
+                    "provider": null,
+                    "name": "PostgreSQL",
+                    "index": 0,
+                    "iconUrl": "https://icon.icepanel.io/devicons/png-128/postgresql.png",
+                    "id": "AtAwOo48GPChCWOkPkkj",
+                    "type": "database",
+                    "nameShort": "PostgreSQL"
+                }
+            },
+            "type": "store"
+        },
+        "bbKFXbGI0OlS8w27FMTn": {
+            "caption": "Corporate solution for MTR KS management",
+            "description": "###### Description\n\n- \n\n###### Responsibilities\n\n- \n\n###### Technical decisions\n\n- \n\n###### Important links\n\n-",
+            "domainId": "2TQjzyTUprq6R2xa7X86",
+            "external": false,
+            "icon": {
+                "catalogTechnologyId": "Rzc4wgxOTB4iATjc3Cly",
+                "name": "Kubernetes",
+                "url": "https://icon.icepanel.io/devicons/png-128/kubernetes.png"
+            },
+            "id": "bbKFXbGI0OlS8w27FMTn",
+            "links": {},
+            "name": "EKSC System",
+            "parentId": "bIv8T2urcrApnGmG404t",
+            "parentIds": [
+                "bIv8T2urcrApnGmG404t"
+            ],
+            "status": "live",
+            "tagIds": [],
+            "teamIds": [],
+            "technologies": {
+                "Rzc4wgxOTB4iATjc3Cly": {
+                    "color": "dark-blue",
+                    "provider": null,
+                    "name": "Kubernetes",
+                    "index": 0,
+                    "iconUrl": "https://icon.icepanel.io/devicons/png-128/kubernetes.png",
+                    "id": "Rzc4wgxOTB4iATjc3Cly",
+                    "type": "kubernetes",
+                    "nameShort": "K8"
+                }
+            },
+            "type": "system"
+        },
+        "gRJz5el74rIDqoITth1w": {
+            "caption": "",
+            "description": "",
+            "domainId": "2TQjzyTUprq6R2xa7X86",
+            "external": false,
+            "icon": {
+                "catalogTechnologyId": "M8wTWhwNJfsMnYw8s7Os",
+                "name": "Spring",
+                "url": "https://icon.icepanel.io/devicons/png-128/spring.png"
+            },
+            "id": "gRJz5el74rIDqoITth1w",
+            "links": {},
+            "name": "NotificationRegistryController",
+            "parentId": "KyjaApuhGgWRmz5ZKAg6",
+            "parentIds": [
+                "KyjaApuhGgWRmz5ZKAg6",
+                "bbKFXbGI0OlS8w27FMTn",
+                "bIv8T2urcrApnGmG404t"
+            ],
+            "status": "live",
+            "tagIds": [],
+            "teamIds": [],
+            "technologies": {
+                "M8wTWhwNJfsMnYw8s7Os": {
+                    "color": "green",
+                    "provider": null,
+                    "name": "Spring",
+                    "index": 0,
+                    "iconUrl": "https://icon.icepanel.io/devicons/png-128/spring.png",
+                    "id": "M8wTWhwNJfsMnYw8s7Os",
+                    "type": null,
+                    "nameShort": "Spring"
+                }
+            },
+            "type": "component"
+        },
+        "jGVQnSOteX2b0ta1HHWy": {
+            "caption": "",
+            "description": "",
+            "domainId": "2TQjzyTUprq6R2xa7X86",
+            "external": false,
+            "icon": {
+                "catalogTechnologyId": "M8wTWhwNJfsMnYw8s7Os",
+                "name": "Spring",
+                "url": "https://icon.icepanel.io/devicons/png-128/spring.png"
+            },
+            "id": "jGVQnSOteX2b0ta1HHWy",
+            "links": {},
+            "name": "DirectoryController",
+            "parentId": "01o4HdC0cODZz6AhkrCW",
+            "parentIds": [
+                "01o4HdC0cODZz6AhkrCW",
+                "bbKFXbGI0OlS8w27FMTn",
+                "bIv8T2urcrApnGmG404t"
+            ],
+            "status": "live",
+            "tagIds": [],
+            "teamIds": [],
+            "technologies": {
+                "M8wTWhwNJfsMnYw8s7Os": {
+                    "color": "green",
+                    "provider": null,
+                    "name": "Spring",
+                    "index": 0,
+                    "iconUrl": "https://icon.icepanel.io/devicons/png-128/spring.png",
+                    "id": "M8wTWhwNJfsMnYw8s7Os",
+                    "type": null,
+                    "nameShort": "Spring"
+                }
+            },
+            "type": "component"
+        },
+        "jd2KvxrElkFxoLJFfHSJ": {
+            "caption": "An external service we rely on",
+            "description": "",
+            "domainId": "2TQjzyTUprq6R2xa7X86",
+            "external": true,
+            "icon": null,
+            "id": "jd2KvxrElkFxoLJFfHSJ",
+            "links": {},
+            "name": "IS KSIP VNK",
+            "parentId": "bIv8T2urcrApnGmG404t",
+            "parentIds": [
+                "bIv8T2urcrApnGmG404t"
+            ],
+            "status": "live",
+            "tagIds": [],
+            "teamIds": [],
+            "technologies": {},
+            "type": "system"
+        },
+        "lxQ6FxCEdP6zjS8W7SqY": {
+            "caption": "",
+            "description": "",
+            "domainId": "2TQjzyTUprq6R2xa7X86",
+            "external": false,
+            "icon": {
+                "catalogTechnologyId": "uJEz1lYRraeHB1o1idt3",
+                "name": "RabbitMQ",
+                "url": "https://icon.icepanel.io/devicons/png-128/rabbitmq.png"
+            },
+            "id": "lxQ6FxCEdP6zjS8W7SqY",
+            "links": {},
+            "name": "",
+            "parentId": "bbKFXbGI0OlS8w27FMTn",
+            "parentIds": [
+                "bbKFXbGI0OlS8w27FMTn",
+                "bIv8T2urcrApnGmG404t"
+            ],
+            "status": "live",
+            "tagIds": [],
+            "teamIds": [],
+            "technologies": {
+                "uJEz1lYRraeHB1o1idt3": {
+                    "color": "orange",
+                    "provider": null,
+                    "name": "RabbitMQ",
+                    "index": 0,
+                    "iconUrl": "https://icon.icepanel.io/devicons/png-128/rabbitmq.png",
+                    "id": "uJEz1lYRraeHB1o1idt3",
+                    "type": null,
+                    "nameShort": "RabbitMQ"
+                }
+            },
+            "type": "app"
+        },
+        "v0TxebvQ94rbJBI49LSP": {
+            "caption": "",
+            "description": "",
+            "domainId": "2TQjzyTUprq6R2xa7X86",
+            "external": false,
+            "icon": {
+                "catalogTechnologyId": "AtAwOo48GPChCWOkPkkj",
+                "urlDark": "https://icon.icepanel.io/devicons/png-128-dark/postgresql.png",
+                "name": "PostgreSQL",
+                "urlLight": "https://icon.icepanel.io/devicons/png-128-light/postgresql.png",
+                "url": "https://icon.icepanel.io/devicons/png-128/postgresql.png"
+            },
+            "id": "v0TxebvQ94rbJBI49LSP",
+            "links": {},
+            "name": "1147_directory",
+            "parentId": "bbKFXbGI0OlS8w27FMTn",
+            "parentIds": [
+                "bbKFXbGI0OlS8w27FMTn",
+                "bIv8T2urcrApnGmG404t"
+            ],
+            "status": "live",
+            "tagIds": [],
+            "teamIds": [],
+            "technologies": {
+                "AtAwOo48GPChCWOkPkkj": {
+                    "iconUrlDark": "https://icon.icepanel.io/devicons/png-128-dark/postgresql.png",
+                    "iconUrlLight": "https://icon.icepanel.io/devicons/png-128-light/postgresql.png",
+                    "color": "dark-blue",
+                    "provider": null,
+                    "name": "PostgreSQL",
+                    "index": 0,
+                    "iconUrl": "https://icon.icepanel.io/devicons/png-128/postgresql.png",
+                    "id": "AtAwOo48GPChCWOkPkkj",
+                    "type": "database",
+                    "nameShort": "PostgreSQL"
+                }
+            },
+            "type": "store"
+        },
+        "z9Yw138LIinu1VF3Cwv2": {
+            "caption": "",
+            "description": "",
+            "domainId": "2TQjzyTUprq6R2xa7X86",
+            "external": false,
+            "icon": {
+                "catalogTechnologyId": "M8wTWhwNJfsMnYw8s7Os",
+                "name": "Spring",
+                "url": "https://icon.icepanel.io/devicons/png-128/spring.png"
+            },
+            "id": "z9Yw138LIinu1VF3Cwv2",
+            "links": {},
+            "name": "Registry Notification Service",
+            "parentId": "KyjaApuhGgWRmz5ZKAg6",
+            "parentIds": [
+                "KyjaApuhGgWRmz5ZKAg6",
+                "bbKFXbGI0OlS8w27FMTn",
+                "bIv8T2urcrApnGmG404t"
+            ],
+            "status": "live",
+            "tagIds": [],
+            "teamIds": [],
+            "technologies": {
+                "M8wTWhwNJfsMnYw8s7Os": {
+                    "color": "green",
+                    "provider": null,
+                    "name": "Spring",
+                    "index": 0,
+                    "iconUrl": "https://icon.icepanel.io/devicons/png-128/spring.png",
+                    "id": "M8wTWhwNJfsMnYw8s7Os",
+                    "type": null,
+                    "nameShort": "Spring"
+                }
+            },
+            "type": "component"
+        }
+    },
+    "tagGroups": {
+        "Io1yehmaq5Iaot4AkA9A": {
+            "icon": "exclamation-triangle",
+            "id": "Io1yehmaq5Iaot4AkA9A",
+            "name": "Risk"
+        }
+    },
+    "tags": {
+        "02BrijOjfmT1wa8mDBgm": {
+            "color": "yellow",
+            "groupId": "Io1yehmaq5Iaot4AkA9A",
+            "id": "02BrijOjfmT1wa8mDBgm",
+            "name": "Medium"
+        },
+        "7bO4wQMnA0iZHXzewa43": {
+            "color": "green",
+            "groupId": "Io1yehmaq5Iaot4AkA9A",
+            "id": "7bO4wQMnA0iZHXzewa43",
+            "name": "Low"
+        },
+        "aKmR3le7ZaIlDSyoewGY": {
+            "color": "red",
+            "groupId": "Io1yehmaq5Iaot4AkA9A",
+            "id": "aKmR3le7ZaIlDSyoewGY",
+            "name": "High"
+        }
+    },
+    "teams": {}
+}
+@endjson

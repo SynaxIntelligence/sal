@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE vars SYSTEM "https://resources.jetbrains.com/writerside/1.0/vars.dtd">
+<vars>
+    <var name="product_full_name" value="IID-1147 Создание портального решения для обеспечения сбора ценовой информации на МТР и оборудование, используемые в КС по данным договоров на выполнение СМР и актов выполненных работ по форме КС-2" />
+    <var name="product_short_name" value="ИС Портальное решение для КСЦ"/>
+    <var name="project_id" value="IID-1147"/>
+    <var name="product_code" value="000.298.000.000"/>
+    <var name="role_model_version" value="v.1.0_15022024"/>
+    <var name="design_project_version" value="v.1.03_24032023"/>
+    <var name="solution_architecture_version" value="v.86412301_22062023"/>
+    <var name="specification_version" value="v.1549-92_05052023"/>
+</vars>

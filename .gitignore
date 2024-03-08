@@ -3,6 +3,7 @@
 /.idea
 /.nginx
 /.demo
-/.artifact
+/.artifact/
 /*.7z
 *.zip
+/topics/_refs/

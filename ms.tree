@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE instance-profile
+        SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
+
+<instance-profile id="ms"
+                 name="Musemium Документы"
+                 start-page="main.md">
+
+    <toc-element topic="main.md">
+    </toc-element>
+    <toc-element topic="requirements.md"/>
+    <toc-element topic="customer-journey-map.md"/>
+    <toc-element topic="use-cases.md"/>
+    <toc-element topic="req-form.md"/>
+    <toc-element topic="uml-classes.md"/>
+    <toc-element topic="proto.md"/>
+    <toc-element topic="openapi.md"/>
+    <toc-element topic="spec.md">
+        <toc-element topic="introduction.md"/>
+        <toc-element topic="general.md"/>
+        <toc-element topic="functional-reqs.md"/>
+        <toc-element topic="non-functional-reqs.md"/>
+        <toc-element topic="appendices.md"/>
+    </toc-element>
+    <toc-element topic="instructions.md"/>
+    <toc-element topic="Заметки.md" hidden="true">
+        <toc-element topic="Чат.md"/>
+        <toc-element topic="Отчеты.md"/>
+        <toc-element topic="Техническая-поддержка.md"/>
+        <toc-element topic="Логирование.md"/>
+        <toc-element topic="Сервис-SSE.md"/>
+        <toc-element topic="Уведомления.md">
+            <toc-element topic="Спецификация-REST-API-Уведомления.md"/>
+        </toc-element>
+        <toc-element topic="Профиль-пользователя.md">
+            <toc-element topic="Спецификация-REST-API-Профиль.md"/>
+        </toc-element>
+        <toc-element topic="Личный-кабинет.md">
+            <toc-element topic="Спецификация-REST-API-ЛК.md"/>
+        </toc-element>
+        <toc-element topic="Документы.md">
+            <toc-element topic="API-docs.topic"/>
+            <toc-element topic="Заявки-на-организацию.md"/>
+            <toc-element topic="Заявки-на-доступ.md"/>
+            <toc-element topic="Справка-отчет.md"/>
+        </toc-element>
+        <toc-element topic="НСИ.md">
+            <toc-element topic="Спецификация-REST-API-НСИ.md"/>
+            <toc-element topic="Диаграммы-классов.md"/>
+        </toc-element>
+        <toc-element topic="ФРМ.md">
+            <toc-element topic="Спецификация-REST-API-ФРМ.md"/>
+        </toc-element>
+        <toc-element topic="Аутентификация.md"/>
+    </toc-element>
+    <toc-element topic="FAQ.md"/>
+</instance-profile>

@@ -4,13 +4,13 @@
 
     <variables>
         <primary-color>blueberry</primary-color>
-        <custom-favicons>eksc_logo_small_O1O_icon.ico</custom-favicons>
-        <header-logo>EKSC_logo_cube.png</header-logo>
-        <product-web-url>http://172.30.48.103:8099</product-web-url>
-        <download-title>ЕКСЦ</download-title>
-        <download-page>http://172.30.48.103:8099</download-page>
+        <custom-favicons>favicon.png</custom-favicons>
+        <header-logo>favicon.png</header-logo>
+        <product-web-url>http://musemium.ru/</product-web-url>
+        <download-title>Musemium</download-title>
+        <download-page>http://musemium.ru/</download-page>
         <showDownloadButton>true</showDownloadButton>
-        <versions-switcher>http://127.0.0.1:59153/1147_zdocs/help-versions.json</versions-switcher>
+        <versions-switcher>http://127.0.0.1:59153/sal_awh_36/help-versions.json</versions-switcher>
     </variables>
 
     <build-profile instance="0.1">
@@ -22,7 +22,7 @@
 
     </footer>
 
-    <build-profile instance="hi">
+    <build-profile instance="ms">
         <variables>
             <noindex-content>true</noindex-content>
         </variables>

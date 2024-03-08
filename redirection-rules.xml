@@ -62,4 +62,8 @@
         <description>Created after removal of "How to" from ЕКСЦ Документы</description>
         <accepts>How-to.html</accepts>
     </rule>
+    <rule id="78539e79">
+        <description>Created after removal of "Глоссарий" from ЕКСЦ Документы</description>
+        <accepts>glossary.html</accepts>
+    </rule>
 </rules>

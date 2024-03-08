@@ -3,5 +3,6 @@
 /.idea
 /.nginx
 /.demo
+/.artifact
 /*.7z
 *.zip

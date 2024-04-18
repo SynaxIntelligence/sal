@@ -1,0 +1,20 @@
+
+@startuml
+left to right direction
+actor User as "Пользователь"
+rectangle "Musemium" {
+  usecase "Авторизация через соц. сети" as Auth
+  usecase "Планирование посещения музея" as Plan
+  usecase "Получение информации о музее" as Info
+  usecase "Прикрепить билеты к посещению" as Ticket
+  usecase "Создать чек-лист/заметку о посещении" as Checklist
+  usecase "Просмотр ленты новостей о выставках" as News
+
+  User --> Auth
+  User --> Plan
+  User --> Info
+  User --> Ticket
+  User --> Checklist
+  User --> News
+}
+@enduml

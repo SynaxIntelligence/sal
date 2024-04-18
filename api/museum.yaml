@@ -1,0 +1,142 @@
+openapi: 3.0.0
+info:
+  title: Museum Visit API
+  version: 1.0.0
+  description: API for managing museum visits and related functionalities.
+servers:
+  - url: https://api.example.com/v1
+
+components:
+  schemas:
+    SocialLoginRequest:
+      type: object
+      properties:
+        social_platform:
+          type: string
+          enum: [facebook, twitter, instagram]
+        access_token:
+          type: string
+    MuseumVisitRequest:
+      type: object
+      properties:
+        city:
+          type: string
+        museum:
+          type: string
+        date:
+          type: string
+          format: date
+        time:
+          type: string
+          format: time
+    MuseumInfo:
+      type: object
+      properties:
+        opening_hours:
+          type: string
+        website:
+          type: string
+        address:
+          type: string
+    TicketAttachmentRequest:
+      type: object
+      properties:
+        visit_id:
+          type: integer
+        ticket_details:
+          type: string
+    ChecklistNoteRequest:
+      type: object
+      properties:
+        museum_id:
+          type: integer
+        visit_id:
+          type: integer
+        notes:
+          type: string
+    ExhibitionNews:
+      type: object
+      properties:
+        museum_id:
+          type: integer
+        news_content:
+          type: string
+
+paths:
+  /social/login:
+    post:
+      summary: Authenticate via social accounts
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SocialLoginRequest'
+      responses:
+        '200':
+          description: Successful authentication
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: string
+  /museum/visit:
+    post:
+      summary: Plan a museum visit
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MuseumVisitRequest'
+      responses:
+        '200':
+          description: Visit successfully planned
+  /museum/info:
+    get:
+      summary: Get museum information
+      responses:
+        '200':
+          description: Museum information retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MuseumInfo'
+  /museum/ticket:
+    post:
+      summary: Attach ticket to a visit
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TicketAttachmentRequest'
+      responses:
+        '200':
+          description: Ticket successfully attached
+  /museum/checklist:
+    post:
+      summary: Create a checklist/note for a visit
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChecklistNoteRequest'
+      responses:
+        '200':
+          description: Checklist/note created successfully
+  /museum/news:
+    get:
+      summary: Get news feed about exhibitions
+      responses:
+        '200':
+          description: Exhibition news feed retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ExhibitionNews'

@@ -1,0 +1,26 @@
+@startuml
+class MuseumApp {
+    - artworks: List<Artwork>
+    + MuseumApp()
+    + planVisit(): Route
+    + addArtwork(artwork: Artwork): void
+    + removeArtwork(artwork: Artwork): void
+}
+
+class Artwork {
+    - title: String
+    - artist: String
+    - roomNumber: int
+}
+
+class Route {
+    - stops: List<Artwork>
+    + Route()
+    + addStop(artwork: Artwork): void
+    + removeStop(artwork: Artwork): void
+    + calculateOptimalRoute(): void
+}
+
+MuseumApp --> Artwork
+MuseumApp --> Route
+@enduml

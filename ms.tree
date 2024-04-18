@@ -12,6 +12,7 @@
     <toc-element topic="customer-journey-map.md"/>
     <toc-element topic="use-cases.md"/>
     <toc-element topic="req-form.md"/>
+    <toc-element topic="er-diagram.md"/>
     <toc-element topic="uml-classes.md"/>
     <toc-element topic="proto.md"/>
     <toc-element topic="openapi.md"/>

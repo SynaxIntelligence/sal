@@ -6,6 +6,7 @@
                  name="Musemium Документы"
                  start-page="main.md">
 
+    <toc-element topic="bpm.md"/>
     <toc-element topic="main.md">
     </toc-element>
     <toc-element topic="requirements.md"/>

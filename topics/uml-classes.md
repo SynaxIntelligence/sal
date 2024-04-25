@@ -6,6 +6,6 @@
 
 
 
-<code-block lang="plantuml" collapsible="true" src="RegistryNotificationService.puml">
+<code-block lang="plantuml" collapsible="true" src="../diagrams/uml_base.puml">
 
 </code-block>

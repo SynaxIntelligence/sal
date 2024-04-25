@@ -1,142 +1,403 @@
 openapi: 3.0.0
 info:
-  title: Museum Visit API
+  title: API для планирования посещения музея
   version: 1.0.0
-  description: API for managing museum visits and related functionalities.
+  description: API для планирования посещения музеев
+
 servers:
   - url: https://api.example.com/v1
-
-components:
-  schemas:
-    SocialLoginRequest:
-      type: object
-      properties:
-        social_platform:
-          type: string
-          enum: [facebook, twitter, instagram]
-        access_token:
-          type: string
-    MuseumVisitRequest:
-      type: object
-      properties:
-        city:
-          type: string
-        museum:
-          type: string
-        date:
-          type: string
-          format: date
-        time:
-          type: string
-          format: time
-    MuseumInfo:
-      type: object
-      properties:
-        opening_hours:
-          type: string
-        website:
-          type: string
-        address:
-          type: string
-    TicketAttachmentRequest:
-      type: object
-      properties:
-        visit_id:
-          type: integer
-        ticket_details:
-          type: string
-    ChecklistNoteRequest:
-      type: object
-      properties:
-        museum_id:
-          type: integer
-        visit_id:
-          type: integer
-        notes:
-          type: string
-    ExhibitionNews:
-      type: object
-      properties:
-        museum_id:
-          type: integer
-        news_content:
-          type: string
+    description: Основной сервер
 
 paths:
-  /social/login:
-    post:
-      summary: Authenticate via social accounts
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/SocialLoginRequest'
-      responses:
-        '200':
-          description: Successful authentication
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  token:
-                    type: string
-  /museum/visit:
-    post:
-      summary: Plan a museum visit
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/MuseumVisitRequest'
-      responses:
-        '200':
-          description: Visit successfully planned
-  /museum/info:
+  /museums:
     get:
-      summary: Get museum information
+      summary: Получить список музеев
       responses:
         '200':
-          description: Museum information retrieved successfully
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/MuseumInfo'
-  /museum/ticket:
-    post:
-      summary: Attach ticket to a visit
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/TicketAttachmentRequest'
-      responses:
-        '200':
-          description: Ticket successfully attached
-  /museum/checklist:
-    post:
-      summary: Create a checklist/note for a visit
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ChecklistNoteRequest'
-      responses:
-        '200':
-          description: Checklist/note created successfully
-  /museum/news:
-    get:
-      summary: Get news feed about exhibitions
-      responses:
-        '200':
-          description: Exhibition news feed retrieved successfully
+          description: Список музеев
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/ExhibitionNews'
+                  $ref: '#/components/schemas/Museum'
+    post:
+      summary: Создать новый музей
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Museum'
+      responses:
+        '200':
+          description: Музей успешно создан
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Museum'
+
+  /museums/{museumId}:
+    get:
+      summary: Получить информацию о конкретном музее
+      parameters:
+        - name: museumId
+          in: path
+          required: true
+          description: Идентификатор музея для получения информации
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Информация о музее
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Museum'
+
+  /exhibitions:
+    get:
+      summary: Получить список выставок
+      responses:
+        '200':
+          description: Список выставок
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Exhibition'
+    post:
+      summary: Создать новую выставку
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Exhibition'
+      responses:
+        '200':
+          description: Выставка успешно создана
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Exhibition'
+
+  /artworks:
+    get:
+      summary: Получить список произведений искусства
+      responses:
+        '200':
+          description: Список произведений искусства
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Artwork'
+    post:
+      summary: Создать новое произведение искусства
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Artwork'
+      responses:
+        '200':
+          description: Произведение искусства успешно создано
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Artwork'
+
+  /tickets:
+    get:
+      summary: Получить список билетов
+      responses:
+        '200':
+          description: Список билетов
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Ticket'
+    post:
+      summary: Создать новый билет
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Ticket'
+      responses:
+        '200':
+          description: Билет успешно создан
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ticket'
+
+  /checklists:
+    get:
+      summary: Получить список чеклистов
+      responses:
+        '200':
+          description: Список чеклистов
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Checklist'
+    post:
+      summary: Создать новый чеклист
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Checklist'
+      responses:
+        '200':
+          description: Чеклист успешно создан
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Checklist'
+
+  /news:
+    get:
+      summary: Получить список новостей
+      responses:
+        '200':
+          description: Список новостей
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/News'
+    post:
+      summary: Создать новую новость
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/News'
+      responses:
+        '200':
+          description: Новость успешно создана
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/News'
+
+  /auth/sso:
+    post:
+      summary: Авторизация через SSO
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+      responses:
+        '200':
+          description: Успешная авторизация
+        '401':
+          description: Неверные учетные данные
+
+  /auth/social:
+    post:
+      summary: Авторизация через социальные сети
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                social_token:
+                  type: string
+      responses:
+        '200':
+          description: Успешная авторизация
+        '401':
+          description: Неверный токен
+
+  /checklists/{checklistId}:
+    patch:
+      summary: Изменение чеклиста
+      parameters:
+        - name: checklistId
+          in: path
+          required: true
+          description: Идентификатор чеклиста
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Checklist'
+      responses:
+        '200':
+          description: Чеклист успешно изменен
+
+  /routes/optimal:
+    post:
+      summary: Построение оптимального маршрута
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                museum_id:
+                  type: integer
+                artworks:
+                  type: array
+                  items:
+                    type: integer
+      responses:
+        '200':
+          description: Оптимальный маршрут успешно построен
+
+  /routes/{routeId}:
+    patch:
+      summary: Корректировка маршрута
+      parameters:
+        - name: routeId
+          in: path
+          required: true
+          description: Идентификатор маршрута
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Route'
+      responses:
+        '200':
+          description: Маршрут успешно скорректирован
+
+    delete:
+      summary: Удаление маршрута
+      parameters:
+        - name: routeId
+          in: path
+          required: true
+          description: Идентификатор маршрута
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Маршрут успешно удален
+        '404':
+          description: Маршрут не найден
+
+components:
+  schemas:
+    Museum:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        address:
+          type: string
+        city:
+          type: string
+        website:
+          type: string
+        opening_hours:
+          type: string
+    Exhibition:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        start_date:
+          type: string
+          format: date
+        end_date:
+          type: string
+          format: date
+    Artwork:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        description:
+          type: string
+        author:
+          type: string
+        year:
+          type: integer
+    Ticket:
+      type: object
+      properties:
+        id:
+          type: integer
+        type:
+          type: string
+        price:
+          type: number
+        visit_date:
+          type: string
+          format: date-time
+    Checklist:
+      type: object
+      properties:
+        id:
+          type: integer
+        text:
+          type: string
+        created_date:
+          type: string
+          format: date-time
+    News:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        text:
+          type: string
+        publication_date:
+          type: string
+          format: date-time
+    Route:
+      type: object
+      properties:
+        id:
+          type: integer
+        museum_id:
+          type: integer
+        waypoints:
+          type: array
+          items:
+            type: object
+            properties:
+              artwork_id:
+                type: integer
+              description:
+                type: string

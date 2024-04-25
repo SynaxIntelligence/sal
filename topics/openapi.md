@@ -5,11 +5,11 @@ Swagger-документация должна соответствовать д�
 
 ## REST API Спецификация
 
-<api-doc openapi-path="../api/swagger.yaml"/>
+<api-doc openapi-path="../api/museum.yaml"/>
 
 Ссылка на swagger
 <seealso>
     <category ref="docs">        
-        <a href="http://127.0.0.1:81/storage/IID-1147.ФРМ_v.1.0_18102023.pdf">Функционально-ролевая модель</a>        
+        <a href="https://app.swaggerhub.com/apis/SynaxIntelligence/Musemium/1.0.0">Ссылка на исходник документации</a>        
     </category>
 </seealso>

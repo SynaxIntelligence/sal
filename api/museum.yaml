@@ -12,6 +12,8 @@ paths:
   /museums:
     get:
       summary: Получить список музеев
+      tags:
+        - API-001-museum-lst
       responses:
         '200':
           description: Список музеев

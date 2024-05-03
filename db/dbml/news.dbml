@@ -1,0 +1,8 @@
+Table news {
+  id int [pk, increment]
+  museum_id int [ref: > museums.id, not null]
+  name text [not null]
+  description text [not null]
+  data binary [not null, note: 'cover photo']
+  date_time datetime [not null]
+}

@@ -2,5 +2,6 @@
 <!DOCTYPE categories
         SYSTEM "https://resources.jetbrains.com/writerside/1.0/categories.dtd">
 <categories>
-    <category id="docs" name="Документация решения" order="1"/>
+    <category id="docs" name="Документация решения" order="0"/>
+    <category id="related" name="Связанные документы" order="1"/>
 </categories>

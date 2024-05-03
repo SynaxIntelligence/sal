@@ -1,0 +1,7 @@
+Table exhibits {
+  id int [pk, increment]
+  location_id int [ref: > locations.id]
+  name text [not null]
+  data binary [not null, note: 'exhibit photo']
+  description text
+}

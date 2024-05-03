@@ -4,8 +4,8 @@
 Составьте диаграмму классов. Определите основные сущности системы, пропишите атрибуты и методы,
 расставьте отношения между классами и их мощность.
 
+> [Сервер](https://www.plantuml.com/plantuml/uml/ZPPjQzim4CVVwrDeVbCOE6l7zgQKGja35BOnrcrlnYYAV8j5PCjOShPkvBjF3tPioPBZG8Yj-zt_JdSwEv8I3lXoynfn-AMm4hXbkrBXWhL05HCradjMDwGb5UQi1lNK01QjAWMw62sK4odlb6hPjbDmJqNzmFvgMPH2tejQMUJg9K8tKZrnk4KMUSl8pl3_47O-zifyIY05jATRZ4UHL_wQaSDRmOj--OZCzuXkNlIHK4Fedkm0Pnyx2Lt5kYhJmkWPgodl2i24Kj7Lwj5ci6cwYeysMWBTSoRL8rDGHH7uKx8jKqisNTgecGjAaiRAPhjaQagXH1IeuRUC6XIZUuZdgZNRj24Twy2altlR2DVExyRs0Es1KJ0r7ng4yJSjYlFS_dussZrrRSB96PAsthdk-O0bV0lEhZAS_oY8BA7ucT_Q-nwvnaqh3goOI4zpchjURZRFiv6R-5i1Tz3EU3ie2ErxvffsAuaIpV5tfnCNgOZNZaHQbWcoylnCb3V3MCnJch7H1aN9h_PmdWFFx35CBRNF4tUl1pjiu2n2IcK4WvBD5IRTYQJjMyw4YyUQ1lhGFraYaRmgfm8vA2nBe1euvwFx0CO78prRvhqKJaXqmZxf1zmA1OC5nPfwZlCLrEbYyloGBa3k3OXSHFfb4yfnBaY8kTNnfAo0RJ5wRkAuJZZjCB7qbxsBssn0kyEnH7Z3bGJrrHUX_o3uwQtERPaVZg1ZXxjLiEdRGaUF_m40)
 
-
-<code-block lang="plantuml" collapsible="true" src="../diagrams/uml_base.puml">
+<code-block lang="plantuml" collapsible="true" src="../diagrams/uml/!uml_diagram.puml">
 
 </code-block>

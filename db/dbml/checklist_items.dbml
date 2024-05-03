@@ -1,0 +1,8 @@
+Table checklist_items {
+  id int [pk, increment]
+  visit_id int [ref: > visits.id, not null]
+  exhibit_id int [ref: > exhibits.id, not null]
+  name text [not null]
+  start_date datetime [not null]
+  done bool [default: false]
+}

@@ -1,0 +1,6 @@
+Table user_photos {
+  id int [pk, increment]
+  user_id int [ref: > users.id, not null]
+  data binary [not null]
+  is_active bool [default: false]
+}

@@ -2,120 +2,748 @@
 
 ## Концептуальная модель данных
 
-```plantuml
-@startuml
+> [Модель данных](https://dbdiagram.io/d/musemium-662b3d845b24a634d0dc20f1)
 
-entity User {
-    + ID : int
-    + Name : string
-    + Email : string
-    + PasswordHash : string
-    + ProfileData : string
-}
+## Описание сущностей
 
-entity Museum {
-    + ID : int
-    + Name : string
-    + Address : string
-    + City : string
-    + Website : string
-    + OpeningHours : string
-}
+### USERS {id='ER-001-users'}
+{collapsible="true"}
 
-entity Exhibition {
-    + ID : int
-    + Name : string
-    + StartDate : date
-    + EndDate : date
-}
+Таблица пользователей **USERS** хранит информацию о зарегистрированных пользователях.
+Эта таблица представляет собой основу для хранения информации о пользователях, которая может быть использована для аутентификации, авторизации и управления учетными записями в приложении или веб-сервисе.
 
-entity Artwork {
-    + ID : int
-    + Name : string
-    + Description : string
-    + Author : string
-    + Year : int
-}
+<tabs>
+<tab title="Атрибуты">
 
-entity Ticket {
-    + ID : int
-    + Type : string
-    + Price : float
-    + VisitDateTime : datetime
-}
+**id** `int`
+: Целочисленный идентификатор пользователя. Первичный ключ (pk), автоинкрементируемый
 
-entity ChecklistNote {
-    + ID : int
-    + Text : string
-    + CreatedDate : datetime
-}
+**name** `text`
+: Текстовое поле, содержащее имя пользователя. Обязательно для заполнения
 
-entity News {
-    + ID : int
-    + Title : string
-    + Text : string
-    + PublicationDate : datetime
-}
+**email** `text`
+: Текстовое поле, содержащее адрес электронной почты пользователя. Обязательно для заполнения.
+Маска ввода: `^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$`
 
-User --|{ Ticket
-User --|{ ChecklistNote
+**phone** `text`
+: Текстовое поле, содержащее номер телефона пользователя
+Маска ввода: `^\+?[0-9()-]+$`
 
-Museum ||--o{ Exhibition
-Exhibition }o--|| Artwork
-Museum ||--o{ News
+**location** `text`
+: Текстовое поле, хранящее местоположение пользователя или другую связанную информацию
 
-@enduml
+**sn_token** `text`
+: Текстовое поле, содержащее токен аутентификации социальной сети. Примечание: &quot;аутентификация с помощью учетной записи в социальной сети
 
-```
+**is_active** `boolean`
+: Булево поле, указывающее на активность учетной записи пользователя. По умолчанию устанавливается значение false
 
-```plantuml
-@startuml
+</tab>
+<tab title="DDL">
+<code-block lang="sql" collapsible="true" collapsed-title="Создание таблицы">
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    name TEXT NOT NULL,
+    email TEXT NOT NULL,
+    phone TEXT,
+    location TEXT,
+    sn_token TEXT,
+    is_active BOOLEAN DEFAULT false
+);
+</code-block>
+</tab>
+<tab title="DBML">
+<code-block lang="sql" collapsible="true" collapsed-title="Определение таблицы" src="../db/dbml/users.dbml">
 
-skinparam class {
-    BackgroundColor White
-    BorderColor Black
-}
+</code-block>
+</tab>
+<tab title="Class">
+<code-block lang="plantuml" src="../diagrams/uml/user_class.puml">
 
-rectangle "User" {
-    rectangle "Auth" as Auth {
-    }
-}
+</code-block>
+</tab>
+</tabs>
 
-rectangle "Museum" {
-    rectangle "Info" as Info {
-    }
-}
+### ACCOUNTS {id='ER-002-accounts'}
+{collapsible="true"}
 
-rectangle "Plan" as Plan {
-}
+Таблица **ACCOUNTS** предназначена для хранения информации об учетных записях пользователей.
 
-rectangle "Ticket" as Ticket {
-}
+<tabs>
+<tab title="Атрибуты">
 
-rectangle "Checklist" as Checklist {
-}
+**id** `int`
+: Целочисленный идентификатор счета. Первичный ключ (pk), автоинкрементируемый
 
-rectangle "News" as News {
-}
+**user_id** `int`
+: Целочисленное поле, содержащее идентификатор пользователя. Ссылается на поле таблицы users;. Обязательно для заполнения (not null)
 
-rectangle "Exhibition" as Exhibition {
-}
+**is_active** `boolean`
+: Булево поле, указывающее на активность счета. По умолчанию (default: false) устанавливается значение false
 
-rectangle "Artwork" as Artwork {
-}
+</tab>
+<tab title="DDL">
+<code-block lang="sql" collapsible="true" collapsed-title="Создание таблицы">
+CREATE TABLE accounts (
+    id SERIAL PRIMARY KEY,
+    user_id INT NOT NULL REFERENCES users(id),
+    first_name TEXT NOT NULL,
+    is_active BOOLEAN DEFAULT false
+);
+</code-block>
+</tab>
+<tab title="DBML">
+<code-block lang="sql" collapsible="true" collapsed-title="Определение таблицы" src="../db/dbml/accounts.dbml">
 
-rectangle "User" --* Auth
-User --* Plan
-User --* Checklist
-User --* Ticket
-Museum --* Info
-Museum --* Exhibition
-Exhibition --* Artwork
-Museum --* News
+</code-block>
+</tab>
+<tab title="Class">
+<code-block lang="plantuml" src="../diagrams/uml/account_class.puml">
 
-@enduml
+</code-block>
+</tab>
+</tabs>
 
-```
+### USER_PHOTOS {id='ER-003-user-photos'}
+{collapsible="true"}
+
+Таблица **USER_PHOTOS** предназначена для хранения фотографий пользователей. Каждая запись в этой таблице представляет собой одну фотографию, загруженную определенным пользователем.
+
+**Задачи**
+1. **Хранение фотографий пользователей:** Каждая фотография, загруженная пользователем, сохраняется в этой таблице в бинарном формате в поле "data".
+2. **Связь с пользователями:** Поле "user_id" связывает фотографию с конкретным пользователем, указывая на его идентификатор в таблице "users". Таким образом, каждая фотография привязана к определенному пользователю.
+3. **Отслеживание активности фотографий:** Поле "is_active" указывает на активность фотографии. Это может быть полезно, если вы хотите предоставить пользователям возможность временно скрывать или удалять свои фотографии без фактического удаления из базы данных.
+
+<tabs>
+<tab title="Атрибуты">
+
+**id** `int`
+: Целочисленный идентификатор строки. Первичный ключ (pk), автоинкрементируемый
+
+**user_id** `int`
+: Целочисленный идентификатор пользователя, к которому привязана фотография. Это внешний ключ, ссылается на поле "id" таблицы "users" и обязателен для заполнения.
+
+**data** `binary`
+: Бинарные данные, содержащие фактическую фотографию пользователя. Это поле обязательно для заполнения.
+
+**is_active** `boolean`
+: Логическое поле, указывающее на активность фотографии. По умолчанию (default: false) устанавливается значение "false".
+
+</tab>
+<tab title="DDL">
+<code-block lang="sql" collapsible="true" collapsed-title="Создание таблицы">
+CREATE TABLE user_photos (
+    id SERIAL PRIMARY KEY,
+    user_id INT NOT NULL REFERENCES users(id),
+    data BYTEA NOT NULL,
+    is_active BOOLEAN DEFAULT FALSE
+);
+</code-block>
+</tab>
+<tab title="DBML">
+<code-block lang="sql" collapsible="true" collapsed-title="Определение таблицы" src="../db/dbml/user_photos.dbml">
+
+</code-block>
+</tab>
+<tab title="Class">
+<code-block lang="plantuml" src="../diagrams/uml/user_photo_class.puml">
+
+</code-block>
+</tab>
+</tabs>
+
+### VISITS {id='ER-004-visits'}
+{collapsible="true"}
+
+Таблица **VISITS** предназначена для хранения информации о запланированных посещениях выставок пользователями.
+
+**Задачи**
+1. **Хранение информации о посещениях**: Каждая запись в таблице "visits" представляет собой отдельное посещение выставки пользователем.
+2. **Связь с учетными записями и выставками**: Поля "account_id" и "exhibition_id" связывают каждое посещение с соответствующей учетной записью пользователя и выставкой, которую пользователь посетил. Это позволяет отслеживать, кто посещал конкретные выставки.
+3. **Хранение дополнительной информации**: Поля "name", "date_start", "location" и "notes" позволяют хранить дополнительную информацию о каждом посещении, такую как название посещения, дата и время начала посещения, местоположение и заметки.
+
+<tabs>
+<tab title="Атрибуты">
+
+**id** `int`
+: Целочисленный идентификатор посещения, который является первичным ключом и автоинкрементируемым
+
+**account_id** `int`
+: Целочисленный идентификатор учетной записи, связанной с посещением. Это внешний ключ, ссылается на поле "id" таблицы "accounts" и обязателен для заполнения.
+
+**exhibition_id** `int`
+: Целочисленный идентификатор выставки, которую посетил пользователь. Это внешний ключ, ссылается на поле "id" таблицы "exhibitions" и обязателен для заполнения.
+
+**name** `text`
+: Название посещения, не может быть пустым.
+
+**date_start** `datetime`
+: Дата и время начала посещения, не может быть пустым.
+
+**notes** `text`
+: Дополнительные заметки о посещении.
+
+</tab>
+<tab title="DDL">
+<code-block lang="sql" collapsible="true" collapsed-title="Создание таблицы">
+CREATE TABLE visits (
+    id SERIAL PRIMARY KEY,
+    account_id INT NOT NULL REFERENCES accounts(id),
+    exhibition_id INT NOT NULL REFERENCES exhibitions(id),
+    name TEXT NOT NULL,
+    date_start DATETIME NOT NULL,
+    notes TEXT    
+);
+</code-block>
+</tab>
+<tab title="DBML">
+<code-block lang="sql" collapsible="true" collapsed-title="Определение таблицы" src="../db/dbml/visits.dbml">
+
+</code-block>
+</tab>
+<tab title="Class">
+<code-block lang="plantuml" src="../diagrams/uml/visit_class.puml">
+
+</code-block>
+</tab>
+</tabs>
+
+### MUSEUMS {id='ER-005-museums'}
+{collapsible="true"}
+
+Таблица **MUSEUMS** предназначена для хранения информации о музеях.
+
+**Задачи**
+1. **Хранение информации о музеях**: Каждая запись в таблице "museums" представляет собой информацию о конкретном музее.
+2. **Описание музея**: Поля "name", "work_hours", "location", "web" и "description" содержат основную информацию о музее, такую как его название, рабочие часы, местоположение, веб-сайт и описание.
+3. **Уникальный идентификатор**: Поле "id" является уникальным идентификатором каждого музея и используется как первичный ключ таблицы.
+
+<tabs>
+<tab title="Атрибуты">
+
+**id** `int`
+: Целочисленный идентификатор, является автоинкрементируемым первичным ключом
+
+**name** `text`
+: Название музея, не может быть пустым
+
+**work_hours** `text`
+: Рабочие часы музея, не может быть пустым
+
+**location** `text`
+: Местоположение музея, не может быть пустым
+
+**web** `text`
+: Веб-сайт музея (опционально)
+
+**description** `text`
+: Описание музея (опционально)
+
+</tab>
+<tab title="DDL">
+<code-block lang="sql" collapsible="true" collapsed-title="Создание таблицы">
+CREATE TABLE museums (
+    id SERIAL PRIMARY KEY,
+    name TEXT NOT NULL,
+    work_hours TEXT NOT NULL,
+    location TEXT NOT NULL,
+    web TEXT,
+    description TEXT
+);
+</code-block>
+</tab>
+<tab title="DBML">
+<code-block lang="sql" collapsible="true" collapsed-title="Определение таблицы" src="../db/dbml/museums.dbml">
+
+</code-block>
+</tab>
+<tab title="Class">
+<code-block lang="plantuml" src="../diagrams/uml/museum_class.puml">
+
+</code-block>
+</tab>
+</tabs>
+
+### EXHIBITIONS {id='ER-006-exhibitions'}
+{collapsible="true"}
+
+Таблица **EXHIBITIONS** предназначена для хранения информации о выставках.
+
+**Задачи**
+1. **Хранение информации о выставках**: Каждая запись в таблице "exhibitions" представляет собой информацию о конкретной выставке.
+2. **Описание выставки**: Поля "name", "location", "start_date", "end_date" и "description" содержат основную информацию о выставке, такую как её название, местоположение, даты начала и окончания, а также описание.
+3. **Уникальный идентификатор**: Поле "id" является уникальным идентификатором каждой выставки и используется как первичный ключ таблицы.
+
+<tabs>
+<tab title="Атрибуты">
+
+**id**
+: Целочисленный идентификатор, является автоинкрементируемым первичным ключом
+
+**name**
+: Название выставки, не может быть пустым
+
+**location**
+: Местоположение выставки, не может быть пустым
+
+**start_date**
+: Дата начала выставки, не может быть пустым
+
+**end_date**
+: Дата окончания выставки, не может быть пустым
+
+**description**
+: Описание выставки (опционально)
+
+</tab>
+<tab title="DDL">
+<code-block lang="sql" collapsible="true" collapsed-title="Создание таблицы">
+CREATE TABLE exhibitions (
+    id SERIAL PRIMARY KEY,
+    name TEXT NOT NULL,
+    location TEXT NOT NULL,
+    start_date DATE,
+    end_date DATE,
+    description TEXT
+);
+</code-block>
+</tab>
+<tab title="DBML">
+<code-block lang="sql" collapsible="true" collapsed-title="Определение таблицы" src="../db/dbml/exhibitions.dbml">
+
+</code-block>
+</tab>
+<tab title="Class">
+<code-block lang="plantuml" src="../diagrams/uml/exhibition_class.puml">
+
+</code-block>
+</tab>
+</tabs>
+
+### MUSEUM_EXHIBITIONS {id='ER-007-museum-exhibitions'}
+{collapsible="true"}
+
+Таблица **MUSEUM_EXHIBITIONS** представляет собой схему, которая используется для установления связи между музеями и выставками, которые они проводят или в которых участвуют.
+
+**Задачи**
+1. **Установление связи между музеями и выставками**: Каждая запись в таблице "museum_exhibitions" устанавливает связь между конкретным музеем и выставкой, в которой этот музей участвует или которую он проводит.
+2. **Предоставление информации о выставках музея**: Музеи могут иметь несколько выставок, и таблица "museum_exhibitions" позволяет хранить информацию о том, какие выставки проводит каждый музей.
+3. **Обеспечение целостности данных**: Использование внешних ключей для связи с таблицами "museums" и "exhibitions" обеспечивает целостность данных, предотвращая возможность добавления записей, которые указывают на несуществующие музеи или выставки.
+
+<tabs>
+<tab title="Атрибуты">
+
+**id** `int`
+: Целочисленный идентификатор, является автоинкрементируемым первичным ключом
+
+**museum_id** `int`
+: Целочисленный идентификатор музея, который ссылается на таблицу "museums". Это внешний ключ, который обеспечивает связь между таблицами "museums" и "museum_exhibitions"
+
+**exhibition_id** `int`
+: Целочисленный идентификатор выставки, который ссылается на таблицу "exhibitions". Это внешний ключ, который обеспечивает связь между таблицами "exhibitions" и "museum_exhibitions"
+
+</tab>
+<tab title="DDL">
+<code-block lang="sql" collapsible="true" collapsed-title="Создание таблицы">
+CREATE TABLE museum_exhibitions (
+    id SERIAL PRIMARY KEY,
+    museum_id INT NOT NULL REFERENCES museums(id),
+    exhibition_id INT NOT NULL REFERENCES exhibitions(id)
+);
+</code-block>
+</tab>
+<tab title="DBML">
+<code-block lang="sql" collapsible="true" collapsed-title="Определение таблицы" src="../db/dbml/museum_exhibitions.dbml">
+
+</code-block>
+</tab>
+</tabs>
+
+### MUSEUM_PHOTOS {id='ER-008-museum-photos'}
+{collapsible="true"}
+
+Таблица **MUSEUM_PHOTOS** предназначена для хранения фотографий, связанных с определенными музеями.
+
+**Задачи**
+1. **Хранение фотографий музеев**: Каждая запись в таблице "museum_photos" представляет собой одну фотографию, связанную с определенным музеем.
+2. **Связь с музеями**: Поле "museum_id" используется для связи каждой фотографии с конкретным музеем. Это внешний ключ, который ссылается на поле "id" таблицы "museums" и обеспечивает связь между фотографией и музеем.
+3. **Хранение данных фотографий**: Поле "data" содержит бинарные данные фотографии музея. Это поле обычно содержит изображение в формате, например, JPEG или PNG.
+
+<tabs>
+<tab title="Атрибуты">
+
+**id** `int`
+: Целочисленный идентификатор, является автоинкрементируемым первичным ключом
+
+**museum_id** `int`
+: Целочисленный идентификатор музея, к которому относится фотография. Это внешний ключ, ссылается на поле "id" таблицы "museums" и обязателен для заполнения
+
+**data** `binary`
+: Бинарные данные фотографии музея. Это поле обязательно для заполнения
+
+</tab>
+<tab title="DDL">
+<code-block lang="sql" collapsible="true" collapsed-title="Создание таблицы">
+CREATE TABLE museum_photos (
+    id SERIAL PRIMARY KEY,
+    museum_id INT NOT NULL REFERENCES museums(id),
+    data BYTEA NOT NULL
+);
+</code-block>
+</tab>
+<tab title="DBML">
+<code-block lang="sql" collapsible="true" collapsed-title="Определение таблицы" src="../db/dbml/museum_photos.dbml">
+
+</code-block>
+</tab>
+<tab title="Class">
+<code-block lang="plantuml" src="../diagrams/uml/museum_photo_class.puml">
+
+</code-block>
+</tab>
+</tabs>
+
+### EXHIBITS {id='ER-009-exhibits'}
+{collapsible="true"}
+
+Таблица **EXHIBITS** предназначена для хранения информации о различных экспонатах, которые могут быть представлены на выставках.
+
+**Задачи**
+1. **Хранение информации об экспонатах**: Каждая запись в таблице "exhibits" представляет собой информацию об отдельном экспонате, который может быть представлен на выставке.
+2. **Установление связи с местоположением**: Поле "location_id" позволяет связать экспонат с определенным местоположением, указывая на запись в таблице "locations", где содержится информация о местоположении. Это позволяет легко определить, где находится конкретный экспонат в музее или выставочном пространстве.
+3. **Описание экспонатов**: Поля "name" и "description" содержат информацию о названии и описании экспоната, соответственно. Это позволяет сохранить подробности об экспонатах, такие как их название, происхождение, историю и т. д.
+4. **Хранение фотографий экспонатов**: Поле "data" предназначено для хранения фотографии экспоната в виде двоичных данных. Это позволяет визуализировать экспонаты и предоставить посетителям визуальное представление о них.
+5. **Идентификация экспонатов**: Каждый экспонат имеет уникальный идентификатор "id", который может использоваться для ссылки на него из других таблиц или для идентификации при выполнении запросов к базе данных.
+
+<tabs>
+<tab title="Атрибуты">
+
+**id** `int`
+: Целочисленный идентификатор, является автоинкрементируемым первичным ключом
+
+**location_id** `int`
+: Целочисленный идентификатор местоположения экспоната. Это внешний ключ, который ссылается на таблицу "locations" и определяет место, где находится экспонат. Может быть пустым, если местоположение неизвестно.
+
+**name** `text`
+: Название экспоната (обязательное поле)
+
+**data** `binary`
+: Двоичные данные фотографии экспоната (обязательное поле)
+
+**description** `text`
+: Описание экспоната
+
+</tab>
+<tab title="DDL">
+<code-block lang="sql" collapsible="true" collapsed-title="Создание таблицы">
+CREATE TABLE exhibits (
+    id SERIAL PRIMARY KEY,
+    name TEXT NOT NULL,
+    data BYTEA NOT NULL,
+    description TEXT
+);
+</code-block>
+</tab>
+<tab title="DBML">
+<code-block lang="sql" collapsible="true" collapsed-title="Определение таблицы" src="../db/dbml/exhibits.dbml">
+
+</code-block>
+</tab>
+<tab title="Class">
+<code-block lang="plantuml" src="../diagrams/uml/exhibit_class.puml">
+
+</code-block>
+</tab>
+</tabs>
+
+### EXHIBITION_EXHIBITS {id='ER-010-exhibition_exhibits'}
+{collapsible="true"}
+
+Таблица **EXHIBITION_EXHIBITS** определяет связи между выставками (таблица "exhibitions") и экспонатами (таблица "exhibits"). Она позволяет организовать отношения "многие ко многим" между выставками и экспонатами.
+
+**Задачи**
+1. **Связь между выставками и экспонатами**: Каждая запись в таблице "exhibition_exhibits" определяет связь между конкретной выставкой и конкретным экспонатом. Это позволяет устанавливать, какие экспонаты будут представлены на определенной выставке.
+2. **Представление содержания выставки**: Посредством связи с таблицей "exhibits" можно определить, какие экспонаты будут представлены на конкретной выставке. Таким образом, таблица "exhibition_exhibits" обеспечивает информацию о содержании выставки.
+
+<tabs>
+<tab title="Атрибуты">
+
+**id** `int`
+: Целочисленный идентификатор, является автоинкрементируемым первичным ключом
+
+**exhibition_id** `int`
+: Целочисленный идентификатор выставки, который является внешним ключом и ссылается на поле "id" таблицы "exhibitions". Обязателен для заполнения
+
+**exhibit_id** `int`
+: Целочисленный идентификатор экспоната, который является внешним ключом и ссылается на поле "id" таблицы "exhibits". Обязателен для заполнения
+
+</tab>
+<tab title="DDL">
+<code-block lang="sql" collapsible="true" collapsed-title="Создание таблицы">
+CREATE TABLE exhibition_exhibits (
+    id SERIAL PRIMARY KEY,
+    exhibition_id INT NOT NULL REFERENCES exhibitions(id),
+    exhibit_id INT NOT NULL REFERENCES exhibits(id)
+);
+</code-block>
+</tab>
+<tab title="DBML">
+<code-block lang="sql" collapsible="true" collapsed-title="Определение таблицы" src="../db/dbml/exhibition_exhibits.dbml">
+
+</code-block>
+</tab>
+</tabs>
+
+### TICKETS {id='ER-011-tickets'}
+{collapsible="true"}
+
+Таблица **TICKETS** предназначена для хранения информации о билетах, которые используются для посещения выставок или музеев
+
+**Задачи**
+1. **Учет посещений**: Каждая запись в таблице "tickets" представляет собой информацию о конкретном билете, который был выдан посетителю для посещения выставки или музея.
+2. **Связь с посещением**: Поле "visit_id" используется для связи каждого билета с соответствующим посещением (записью в таблице "visits"). Это позволяет отслеживать, когда и кем был использован билет.
+3. **Хранение данных о билете**: Поле "data" содержит бинарные данные, представляющие собой файл билета. Это может быть изображение билета в формате PNG, JPEG или даже PDF.
+4. **Отметка времени**: Поле "timestamp" используется для отметки времени создания билета. Это позволяет администраторам и посетителям отслеживать, когда билет был выдан или когда произошло его создание.
+
+<tabs>
+<tab title="Атрибуты">
+
+**id** `int`
+: Целочисленный идентификатор, является автоинкрементируемым первичным ключом
+
+**visit_id** `int`
+: Целочисленный идентификатор посещения, который является внешним ключом и ссылается на поле "id" таблицы "visits". Обязателен для заполнения.
+
+**data** `binary`
+: Двоичные данные, представляющие собой бинарное представление файла билета. Обязательно для заполнения. Примечание указывает на то, что эти данные могут представлять собой изображение в форматах PNG, JPEG или PDF.
+
+**timestamp** `datetime`
+: Временная метка, указывающая на дату и время создания билета. Это поле не может быть пустым.
+
+</tab>
+<tab title="DDL">
+<code-block lang="sql" collapsible="true" collapsed-title="Создание таблицы">
+CREATE TABLE tickets (
+    id SERIAL PRIMARY KEY,
+    visit_id INT NOT NULL REFERENCES visits(id),
+    data BYTEA NOT NULL,
+    timestamp TIMESTAMP NOT NULL
+);
+</code-block>
+</tab>
+<tab title="DBML">
+<code-block lang="sql" collapsible="true" collapsed-title="Определение таблицы" src="../db/dbml/tickets.dbml">
+
+</code-block>
+</tab>
+<tab title="Class">
+<code-block lang="plantuml" src="../diagrams/uml/ticket_class.puml">
+
+</code-block>
+</tab>
+</tabs>
+
+### LOCATIONS {id='ER-012-locations'}
+{collapsible="true"}
+
+Таблица **LOCATIONS** предназначена для хранения информации о различных местоположениях, которые могут использоваться в контексте выставок или музеев
+
+**Задачи**
+1. **Хранение информации о местоположениях**: Основная задача таблицы - это сохранение данных о различных местоположениях, которые могут использоваться в контексте выставок или музеев. Это могут быть залы выставок, аудитории, лекционные залы, кафе и т. д.
+2. **Управление местоположениями**: Таблица "locations" позволяет управлять списком доступных местоположений. Администраторы могут добавлять, удалять или редактировать местоположения в соответствии с потребностями выставок или музеев.
+3. **Определение типа местоположения**: Поле "type_of_location" позволяет классифицировать местоположения по их типу. Например, это может быть тип зала, тип кафе или тип аудитории. Это помогает в организации и планировании мероприятий в рамках выставок или музеев.
+
+<tabs>
+<tab title="Атрибуты">
+
+**id** `int`
+: Целочисленный идентификатор, является автоинкрементируемым первичным ключом
+
+**name** `text`
+: Текстовое поле для хранения названия местоположения. Обязательно для заполнения
+
+**type_of_location** `enum`
+: Поле для хранения типа местоположения. Тип данных - перечисляемый тип (enum)
+
+</tab>
+<tab title="DDL">
+<code-block lang="sql" collapsible="true" collapsed-title="Создание таблицы">
+CREATE TABLE locations (
+    id SERIAL PRIMARY KEY,
+    name TEXT NOT NULL,
+    type_of_location TEXT
+);
+</code-block>
+</tab>
+<tab title="DBML">
+<code-block lang="sql" collapsible="true" collapsed-title="Определение таблицы" src="../db/dbml/locations.dbml">
+
+</code-block>
+</tab>
+<tab title="Class">
+<code-block lang="plantuml" src="../diagrams/uml/location_class.puml">
+
+</code-block>
+</tab>
+</tabs>
+
+### CHECKLIST_ITEMS {id='ER-013-checklist-items'}
+{collapsible="true"}
+
+Таблица **CHECKLIST_ITEMS** представляет собой список элементов чеклиста, которые должны быть проверены во время посещения музея или выставки. Каждый элемент чеклиста связан с определенным посещением и экспонатом и содержит информацию о его описании, времени начала выполнения и статусе выполнения.
+
+**Задачи**
+1. **Отслеживание элементов чеклиста посещений**: Каждая запись в таблице представляет собой отдельный элемент чеклиста, который должен быть проверен во время посещения музея или выставки.
+2. **Связь с конкретным посещением**: Поле "visit_id" используется для связи элемента чеклиста с конкретным посещением, указывая на запись в таблице "visits". Это позволяет отслеживать выполнение элементов чеклиста для каждого отдельного посещения.
+3. **Связь с экспонатами**: Поле "exhibit_id" устанавливает связь между элементом чеклиста и конкретным экспонатом, который должен быть проверен. Оно ссылается на запись в таблице "exhibits".
+4. **Отслеживание статуса выполнения**: Поле "done" указывает, выполнен ли элемент чеклиста или нет. Это позволяет вести учет выполнения задач и отслеживать текущий статус чеклиста.
+
+<tabs>
+<tab title="Атрибуты">
+
+**id** `int`
+: Целочисленный идентификатор, является автоинкрементируемым первичным ключом
+
+**visit_id** `int`
+: Целочисленный идентификатор посещения. Это внешний ключ, который ссылается на таблицу "visits" и указывает на конкретное посещение, к которому относится элемент чеклиста. Обязательное для заполнения.
+
+**exhibit_id** `int`
+: Целочисленный идентификатор экспоната. Это внешний ключ, который ссылается на таблицу "exhibits" и указывает на конкретный экспонат, который должен быть проверен в чеклисте. Обязательное для заполнения.
+
+**name** `text`
+: Текстовое поле, содержащее описание элемента чеклиста. Обязательно для заполнения.
+
+**start_date** `datetime`
+: Дата и время начала выполнения элемента чеклиста. Обязательно для заполнения.
+
+**done** `boolean`
+: Логическое поле, указывающее, выполнен ли элемент чеклиста или нет. По умолчанию устанавливается в значение "false".
+
+</tab>
+<tab title="DDL">
+<code-block lang="sql" collapsible="true" collapsed-title="Создание таблицы">
+CREATE TABLE checklist_items (
+    id SERIAL PRIMARY KEY,
+    visit_id INT NOT NULL REFERENCES visits(id),
+    exhibit_id INT NOT NULL REFERENCES exhibits(id),
+    name TEXT NOT NULL,
+    start_date TIMESTAMP NOT NULL,
+    done BOOLEAN DEFAULT FALSE
+);
+</code-block>
+</tab>
+<tab title="DBML">
+<code-block lang="sql" collapsible="true" collapsed-title="Определение таблицы" src="../db/dbml/checklist_items.dbml">
+
+</code-block>
+</tab>
+<tab title="Class">
+<code-block lang="plantuml" src="../diagrams/uml/checklist_item_class.puml">
+
+</code-block>
+</tab>
+</tabs>
+
+### NEWS {id='ER-014-news'}
+{collapsible="true"}
+
+Таблица **NEWS** предназначена для хранения информации о новостях, связанных с музеями. Каждая запись в этой таблице представляет собой отдельную новость, содержащую название, описание, обложку, дату и время публикации, а также ссылку на музей, к которому она относится.
+
+**Задачи**
+1. **Хранение новостей**: Таблица "news" хранит информацию о различных новостях, включая их заголовки, описания, изображения-обложки и даты публикации.
+2. **Отображение новостей**: Записи в таблице "news" могут использоваться для отображения новостей на веб-сайте, в мобильном приложении или в других медиа-контекстах.
+3. **Управление данными новостей**: Администраторы могут добавлять, редактировать и удалять новости, изменяя записи в таблице "news".
+4. **Поддержка изображений-обложек**: Поле "data" позволяет хранить изображения-обложки для каждой новости, что обеспечивает визуальное представление новостей.
+5. **Сортировка и фильтрация**: Данные в таблице "news" могут быть сортированы и отфильтрованы по различным критериям, таким как дата публикации или категория новостей.
+
+<tabs>
+<tab title="Атрибуты">
+
+**id** `int`
+: Целочисленный идентификатор, является автоинкрементируемым первичным ключом
+
+**museum_id** `int`
+: Целочисленный идентификатор музея, с которым связана новость. Это внешний ключ, который ссылается на таблицу "museums" и определяет музей, к которому относится новость. Обязательно для заполнения.
+
+**name** `text`
+: Текстовое поле, содержащее заголовок новости. Обязательно для заполнения
+
+**description** `text`
+: Текстовое поле, содержащее описание новости. Обязательно для заполнения
+
+**data** `binary`
+: Бинарные данные фотографии-обложки новости. Это поле содержит изображение в формате, например, JPEG или PNG, которое используется в качестве обложки для новости. Обязательно для заполнения
+
+**date_time** `datetime`
+: Поле типа дата и время, указывающее на дату и время публикации новости. Обязательно для заполнения
+
+**done** `boolean`
+: Логическое поле, указывающее, выполнен ли элемент чеклиста или нет. По умолчанию устанавливается в значение "false".
+
+</tab>
+<tab title="DDL">
+<code-block lang="sql" collapsible="true" collapsed-title="Создание таблицы">
+CREATE TABLE news (
+    id SERIAL PRIMARY KEY,
+    museum_id INT NOT NULL REFERENCES museums(id),
+    name TEXT NOT NULL,
+    description TEXT NOT NULL,
+    data BYTEA NOT NULL,
+    date_time TIMESTAMP NOT NULL
+);
+</code-block>
+</tab>
+<tab title="DBML">
+<code-block lang="sql" collapsible="true" collapsed-title="Определение таблицы" src="../db/dbml/news.dbml">
+
+</code-block>
+</tab>
+<tab title="Class">
+<code-block lang="plantuml" src="../diagrams/uml/news_class.puml">
+
+</code-block>
+</tab>
+</tabs>
+
+### ACCOUNT_NEWS {id='ER-014-account-news'}
+{collapsible="true"}
+
+Таблица **ACCOUNT_NEWS** представляет собой связующую таблицу, которая устанавливает отношение между учетными записями пользователей (accounts) и новостными записями (news).
+
+**Задачи**
+1. **Установление связи между учетными записями пользователей и новостными записями**: Каждая запись в таблице "account_news" представляет собой отношение между конкретной учетной записью пользователя и определенной новостной записью. Это позволяет связать пользователя с новостными материалами, которые он просматривает или отмечает.
+2. **Отслеживание просмотров новостей пользователем**: Путем связывания идентификаторов учетной записи пользователя и новостной записи в таблице "account_news" можно отслеживать, какие новости просматривает или отмечает пользователь.
+3. **Персонализация новостной ленты для пользователей**: Используя таблицу "account_news", можно предоставить персонализированный контент для каждого пользователя, исходя из его просмотров и предпочтений новостей.
+4. **Аналитика просмотров новостей**: Анализируя данные в таблице "account_news", можно получить информацию о том, какие новостные материалы наиболее популярны среди пользователей, и использовать эту информацию для улучшения контента и стратегий взаимодействия с пользователями.
+
+<tabs>
+<tab title="Атрибуты">
+
+**id** `int`
+: Целочисленный идентификатор, является автоинкрементируемым первичным ключом
+
+**account_id** `int`
+: Целочисленный идентификатор учетной записи пользователя. Это внешний ключ (foreign key), который связывается с полем "id" таблицы "accounts". Указывает на конкретную учетную запись пользователя, которая связана с определенной новостной записью. Обязательно для заполнения.
+
+**news_id** `int`
+: Целочисленный идентификатор новостной записи. Это внешний ключ, который связывается с полем "id" таблицы "news". Указывает на конкретную новостную запись, с которой связана определенная учетная запись пользователя. Обязательно для заполнения.
+
+</tab>
+<tab title="DDL">
+<code-block lang="sql" collapsible="true" collapsed-title="Создание таблицы">
+CREATE TABLE account_news (
+    id SERIAL PRIMARY KEY,
+    account_id INT NOT NULL REFERENCES accounts(id),
+    news_id INT NOT NULL REFERENCES news(id)
+);
+</code-block>
+</tab>
+<tab title="DBML">
+<code-block lang="sql" collapsible="true" collapsed-title="Определение таблицы" src="../db/dbml/account_news.dbml">
+
+</code-block>
+</tab>
+</tabs>
 
 ### В данной ER-диаграмме:
 

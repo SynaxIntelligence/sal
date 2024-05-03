@@ -1,0 +1,5 @@
+Table exhibition_exhibits {
+  id int [pk, increment]
+  exhibition_id int [ref: > exhibitions.id, not null]
+  exhibit_id int [ref: > exhibits.id, not null]
+}

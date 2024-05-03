@@ -1,0 +1,5 @@
+Table museum_photos {
+  id int [pk, increment]
+  museum_id int [ref: > museums.id, not null]
+  data binary [not null]
+}

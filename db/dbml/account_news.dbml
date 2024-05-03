@@ -1,0 +1,5 @@
+Table account_news {
+  id int [pk, increment]
+  account_id int [not null, ref: > accounts.id]
+  news_id int [not null, ref: > news.id]
+}

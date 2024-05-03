@@ -1,0 +1,8 @@
+Table exhibitions {
+  id int [pk, increment]
+  name text [not null]
+  location text [not null]
+  start_date date [not null]
+  end_date date [not null]
+  description text
+}

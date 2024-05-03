@@ -66,4 +66,96 @@
         <description>Created after removal of "Глоссарий" from ЕКСЦ Документы</description>
         <accepts>glossary.html</accepts>
     </rule>
+    <rule id="6e7a29d7">
+        <description>Created after removal of "Чат" from Musemium Документы</description>
+        <accepts>Чат.html</accepts>
+    </rule>
+    <rule id="615ab55f">
+        <description>Created after removal of "Отчеты" from Musemium Документы</description>
+        <accepts>Отчеты.html</accepts>
+    </rule>
+    <rule id="77b0ef65">
+        <description>Created after removal of "Техническая поддержка" from Musemium Документы</description>
+        <accepts>Техническая-поддержка.html</accepts>
+    </rule>
+    <rule id="374c610d">
+        <description>Created after removal of "Логирование" from Musemium Документы</description>
+        <accepts>Логирование.html</accepts>
+    </rule>
+    <rule id="2d75b050">
+        <description>Created after removal of "Сервис SSE" from Musemium Документы</description>
+        <accepts>Сервис-SSE.html</accepts>
+    </rule>
+    <rule id="7275aca0">
+        <description>Created after removal of "Уведомления" from Musemium Документы</description>
+        <accepts>Уведомления.html</accepts>
+    </rule>
+    <rule id="1fac5185">
+        <description>Created after removal of "Спецификация REST API Уведомления" from Musemium Документы</description>
+        <accepts>Спецификация-REST-API-Уведомления.html</accepts>
+    </rule>
+    <rule id="119fcd32">
+        <description>Created after removal of "Профиль пользователя" from Musemium Документы</description>
+        <accepts>Профиль-пользователя.html</accepts>
+    </rule>
+    <rule id="67ed1bc0">
+        <description>Created after removal of "Спецификация REST API Профиль" from Musemium Документы</description>
+        <accepts>Спецификация-REST-API-Профиль.html</accepts>
+    </rule>
+    <rule id="53e1d8e8">
+        <description>Created after removal of "Личный кабинет" from Musemium Документы</description>
+        <accepts>Личный-кабинет.html</accepts>
+    </rule>
+    <rule id="122e2a8">
+        <description>Created after removal of "Спецификация REST API ЛК" from Musemium Документы</description>
+        <accepts>Спецификация-REST-API-ЛК.html</accepts>
+    </rule>
+    <rule id="368ab664">
+        <description>Created after removal of "Документы" from Musemium Документы</description>
+        <accepts>Документы.html</accepts>
+    </rule>
+    <rule id="2ed83a3">
+        <description>Created after removal of "Спецификация REST API" from Musemium Документы</description>
+        <accepts>API-docs.html</accepts>
+    </rule>
+    <rule id="3f9b8acb">
+        <description>Created after removal of "Заявки на организацию" from Musemium Документы</description>
+        <accepts>Заявки-на-организацию.html</accepts>
+    </rule>
+    <rule id="3a0a97f2">
+        <description>Created after removal of "Заявки на доступ" from Musemium Документы</description>
+        <accepts>Заявки-на-доступ.html</accepts>
+    </rule>
+    <rule id="5aa94233">
+        <description>Created after removal of "Справки-отчеты" from Musemium Документы</description>
+        <accepts>Справка-отчет.html</accepts>
+    </rule>
+    <rule id="64ae6410">
+        <description>Created after removal of "НСИ" from Musemium Документы</description>
+        <accepts>НСИ.html</accepts>
+    </rule>
+    <rule id="1fad4623">
+        <description>Created after removal of "Спецификация REST API НСИ" from Musemium Документы</description>
+        <accepts>Спецификация-REST-API-НСИ.html</accepts>
+    </rule>
+    <rule id="36183f44">
+        <description>Created after removal of "Диаграммы классов" from Musemium Документы</description>
+        <accepts>Диаграммы-классов.html</accepts>
+    </rule>
+    <rule id="4a809397">
+        <description>Created after removal of "Функционально-ролевая модель" from Musemium Документы</description>
+        <accepts>ФРМ.html</accepts>
+    </rule>
+    <rule id="62a47169">
+        <description>Created after removal of "Спецификация REST API ФРМ" from Musemium Документы</description>
+        <accepts>Спецификация-REST-API-ФРМ.html</accepts>
+    </rule>
+    <rule id="4010857e">
+        <description>Created after removal of "Аутентификация" from Musemium Документы</description>
+        <accepts>Аутентификация.html</accepts>
+    </rule>
+    <rule id="793bcaa8">
+        <description>Created after removal of "Заметки" from Musemium Документы</description>
+        <accepts>Заметки.html</accepts>
+    </rule>
 </rules>

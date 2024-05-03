@@ -1,0 +1,8 @@
+Table museums {
+  id int [pk, increment]
+  name text [not null]
+  work_hours text [not null]
+  location text [not null]
+  web text
+  description text
+}

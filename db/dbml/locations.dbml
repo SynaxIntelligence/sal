@@ -1,0 +1,5 @@
+Table locations {
+  id int [pk, increment]
+  name text [not null]
+  type_of_location type_of_location
+}

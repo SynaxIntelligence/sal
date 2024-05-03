@@ -1,0 +1,6 @@
+Table tickets {
+  id int [pk, increment]
+  visit_id int [ref: > visits.id, not null]
+  data binary [not null, note: 'binary representation of png, jp(e)g, pdf']
+  timestamp datetime [not null]
+}

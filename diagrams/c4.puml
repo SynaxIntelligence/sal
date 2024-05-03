@@ -1,45 +1,44 @@
 
 @startuml C4_Elements
 
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
-
 !define DEVICONS https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/devicons
 !define FONTAWESOME https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/font-awesome-5
-!include DEVICONS/angular.puml
-!include DEVICONS/java.puml
-!include DEVICONS/msql_server.puml
-!include FONTAWESOME/users.puml
-
-AddElementTag("microService", $sprite="java,scale=1", $shape=EightSidedShape(), $legendText="micro service (eight sided) (no text, no back color)")
-
-LAYOUT_WITH_LEGEND()
-
-Person(user, "Customer", "People that need products", $sprite="users")
-Person(admin, "Administrator")
-
-System_Boundary(c1, "Sample System") {
-Container(spa, "SPA", "angular", "The main interface that the customer interacts with", $sprite="angular")
-Container(api, "API", "java", "Handles all business logic", $sprite="java")
-ContainerDb(db, "Database", "Microsoft SQL", "Holds product, order and invoice information", $sprite="msql_server")
-    Container_Boundary(cb, "Services") {
-        Container(auth, "Auth", "java", "Handles all business logic", $tags="microService")
-        Container(museum, "Museum", "java", "Handles all business logic", $sprite="java")
-        Container(visit, "Visit", "java", "Handles all business logic", $sprite="java")
-        Container(api, "API", "java", "Handles all business logic", $sprite="java")
-    }
-}
-
-Person(admin, "Administrator")
-System_Boundary(c2, "Sample System2") {
-    Container(web_app, "Web Application", "C#, ASP.NET Core 2.1 MVC", "Allows users to compare multiple Twitter timelines")
-}
-System(twitter, "Twitter")
-
-Rel(admin, web_app, "Uses", "HTTPS")
-Rel(web_app, twitter, "Gets tweets from", "HTTPS")
-
-Rel(user, spa, "Uses", "https", $link="https://plantuml.com/link")
-Rel(spa, api, "Uses", "https")
-Rel_R(api, db, "Reads/Writes")
-Rel(api, cb, "Consists of", "https")
+'!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+'!include DEVICONS/angular.puml
+'!include DEVICONS/java.puml
+'!include DEVICONS/msql_server.puml
+'!include FONTAWESOME/users.puml
+'
+'AddElementTag("microService", $sprite="java,scale=1", $shape=EightSidedShape(), $legendText="micro service (eight sided) (no text, no back color)")
+'
+'LAYOUT_WITH_LEGEND()
+'
+'Person(user, "Customer", "People that need products", $sprite="users")
+'Person(admin, "Administrator")
+'
+'System_Boundary(c1, "Sample System") {
+'Container(spa, "SPA", "angular", "The main interface that the customer interacts with", $sprite="angular")
+'Container(api, "API", "java", "Handles all business logic", $sprite="java")
+'ContainerDb(db, "Database", "Microsoft SQL", "Holds product, order and invoice information", $sprite="msql_server")
+'    Container_Boundary(cb, "Services") {
+'        Container(auth, "Auth", "java", "Handles all business logic", $tags="microService")
+'        Container(museum, "Museum", "java", "Handles all business logic", $sprite="java")
+'        Container(visit, "Visit", "java", "Handles all business logic", $sprite="java")
+'        Container(api, "API", "java", "Handles all business logic", $sprite="java")
+'    }
+'}
+'
+'Person(admin, "Administrator")
+'System_Boundary(c2, "Sample System2") {
+'    Container(web_app, "Web Application", "C#, ASP.NET Core 2.1 MVC", "Allows users to compare multiple Twitter timelines")
+'}
+'System(twitter, "Twitter")
+'
+'Rel(admin, web_app, "Uses", "HTTPS")
+'Rel(web_app, twitter, "Gets tweets from", "HTTPS")
+'
+'Rel(user, spa, "Uses", "https", $link="https://plantuml.com/link")
+'Rel(spa, api, "Uses", "https")
+'Rel_R(api, db, "Reads/Writes")
+'Rel(api, cb, "Consists of", "https")
 @enduml

@@ -12,10 +12,3 @@
 ## Главный экран приложения {id="home_screen"}
 
 ![home_screen.svg](home_screen.svg)
-
-Ссылка на прототип
-<seealso>
-    <category ref="docs">        
-        <a href="http://127.0.0.1:81/storage/IID-1147.ФРМ_v.1.0_18102023.pdf">Функционально-ролевая модель</a>        
-    </category>
-</seealso>

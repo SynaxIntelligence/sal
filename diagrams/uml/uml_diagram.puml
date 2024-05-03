@@ -19,7 +19,6 @@ classDiagram {
 </style>
 
 package "Museumium" {
-
     !include account_class.puml
     !include checklist_item_class.puml
     !include exhibit_class.puml

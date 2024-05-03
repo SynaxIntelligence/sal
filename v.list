@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE vars SYSTEM "https://resources.jetbrains.com/writerside/1.0/vars.dtd">
 <vars>
-    <var name="product_full_name" value="IID-240308 Создание мобильного приложения для планирования походов в музеи и оптимизации маршрутов пользователей" />
+    <var name="product_full_name" value="Мобильное приложение для планирования походов в музеи и оптимизации маршрутов пользователей" />
     <var name="product_short_name" value="Мобильное решение Musemium"/>
     <var name="product_brand_name" value="Musemium"/>
     <var name="project_id" value="IID-240308"/>
     <var name="product_code" value="000.315.000.000"/>
+    <var name="project_full_name" value="IID-240308 Создание мобильного приложения для планирования походов в музеи и оптимизации маршрутов пользователей" />
     <var name="role_model_version" value="v.1.0_15022024"/>
     <var name="design_project_version" value="v.1.03_24032023"/>
     <var name="solution_architecture_version" value="v.86412301_22062023"/>

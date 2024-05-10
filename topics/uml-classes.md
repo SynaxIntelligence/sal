@@ -71,7 +71,7 @@
 ### Диаграмма
 {collapsible="true" default-state="expanded"}
 
-> [SVG](%host%/images/!uml_diagram.svg)
+> [SVG](%host%/images/uml_diagram.svg)
 
 <code-block lang="plantuml" src="../diagrams/uml/uml_diagram.puml">
 

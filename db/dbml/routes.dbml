@@ -1,0 +1,5 @@
+Table routes {
+  id int [pk, increment]
+  visit_id int [ref: > visits.id, not null]
+  graph binary [not null, note: 'binary graph data for building a route']
+}

@@ -8,17 +8,19 @@ skinparam linetype ortho
 skinparam classAttributeFontSize 12
 
 <style>
-classDiagram {
+.classDiagram {
   class {
       header {
-        FontSize 14
+        FontSize 16
         FontStyle bold
+        BackgroundColor lightgray
       }
   }
 }
 </style>
 
 package "Museumium" {
+
     !include account_class.puml
     !include checklist_item_class.puml
     !include exhibit_class.puml
@@ -31,13 +33,19 @@ package "Museumium" {
     !include user_class.puml
     !include user_photo_class.puml
     !include visit_class.puml
+    !include route_class.puml
 
-    class VisitService {
+    class User <<classDiagram>> {
 
     }
-    User -- UserPhotoService: uses
-    User -- UserService: uses
-    User -- AccountService: uses
+
+    class VisitService <<classDiagram>> {
+
+    }
+    User --> UserPhotoService: uses
+    User --> UserService: uses
+    User --> AccountService: uses
+    User --> RouteService: uses
 
     AccountService "1" -[dashed]-> "1" Account: provides
     UserPhotoService "1" -[dashed]-> "0..*" UserPhoto: provides
@@ -64,23 +72,13 @@ package "Museumium" {
 
     LocationService "1" -[dashed]---> "0..*" Location: provides
 
-    MuseumPhotoService "1" -[dashed]left-> "0..*" MuseumPhoto: provides
+    MuseumPhotoService "1" -[dashed]-> "0..*" MuseumPhoto: provides
 
     NewsService "1" -[dashed]left-> "0..*" News: provides
     NewsService --> MuseumService: uses
 
-'    Accounts "1" -- "0..*" Visits
-'    Accounts "1" -- "0..*" AccountNews
-'    Museums "1" -- "0..*" MuseumExhibitions
-'    Museums "1" -- "0..*" MuseumPhotos
-'    Exhibitions "1" -- "0..*" MuseumExhibitions
-'    Exhibitions "1" -- "0..*" ExhibitionsExhibits
-'    Visits "1" -- "0..*" Tickets
-'    Visits "1" -- "0..*" ChecklistItems
-'    Visits "1" -- "0..1" Routes
-'    Exhibits "1" -- "0..*" ExhibitionsExhibits
-'    Exhibits "1" -- "0..*" ExhibitLocation
-'    Locations "1" -- "0..*" ExhibitLocation
-'    News "1" -- "0..*" AccountNews
+    RouteService "1" -[dashed]left-> "0..*" Route: provides
+    RouteService --> VisitService: uses
+
 }
 @enduml

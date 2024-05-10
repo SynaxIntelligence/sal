@@ -11,4 +11,5 @@
     <var name="design_project_version" value="v.1.03_24032023"/>
     <var name="solution_architecture_version" value="v.86412301_22062023"/>
     <var name="specification_version" value="v.1549-92_05052023"/>
+    <var name="host" value="https://synaxintelligence.github.io/sal"/>
 </vars>

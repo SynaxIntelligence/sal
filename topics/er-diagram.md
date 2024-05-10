@@ -1,19 +1,18 @@
 # Диаграмма ER
+<show-structure depth="2"/>
 
 ## Концептуальная модель данных
 
 ER-диаграмма для мобильного приложения "Musemium"
 
-Данная диаграмма представляет модель данных для мобильного приложения "Музейный гид", которое помогает посетителям музеев получать информацию о выставках, экспонатах, организовывать посещения и узнавать актуальные новости.
-
-_Версия: 1.0_
+Данная диаграмма представляет модель данных для мобильного приложения "Musemium", которое помогает посетителям музеев получать информацию о выставках, экспонатах, организовывать посещения и узнавать актуальные новости.
 
 > [Модель данных](https://dbdiagram.io/d/musemium-662b3d845b24a634d0dc20f1)
 
 ## Описание сущностей
 
 ### USERS {id='ER-001-users'}
-{collapsible="true"}
+{collapsible="true" default-state="expanded"}
 
 Таблица пользователей **USERS** хранит информацию о зарегистрированных пользователях.
 Эта таблица представляет собой основу для хранения информации о пользователях, которая может быть использована для аутентификации, авторизации и управления учетными записями в приложении или веб-сервисе.
@@ -71,7 +70,7 @@ CREATE TABLE users (
 </tabs>
 
 ### ACCOUNTS {id='ER-002-accounts'}
-{collapsible="true"}
+{collapsible="true" default-state="expanded"}
 
 Таблица **ACCOUNTS** предназначена для хранения информации об учетных записях пользователей.
 
@@ -111,7 +110,7 @@ CREATE TABLE accounts (
 </tabs>
 
 ### USER_PHOTOS {id='ER-003-user-photos'}
-{collapsible="true"}
+{collapsible="true" default-state="expanded"}
 
 Таблица **USER_PHOTOS** предназначена для хранения фотографий пользователей. Каждая запись в этой таблице представляет собой одну фотографию, загруженную определенным пользователем.
 
@@ -159,7 +158,7 @@ CREATE TABLE user_photos (
 </tabs>
 
 ### VISITS {id='ER-004-visits'}
-{collapsible="true"}
+{collapsible="true" default-state="expanded"}
 
 Таблица **VISITS** предназначена для хранения информации о запланированных посещениях выставок пользователями.
 
@@ -215,7 +214,7 @@ CREATE TABLE visits (
 </tabs>
 
 ### MUSEUMS {id='ER-005-museums'}
-{collapsible="true"}
+{collapsible="true" default-state="expanded"}
 
 Таблица **MUSEUMS** предназначена для хранения информации о музеях.
 
@@ -271,7 +270,7 @@ CREATE TABLE museums (
 </tabs>
 
 ### EXHIBITIONS {id='ER-006-exhibitions'}
-{collapsible="true"}
+{collapsible="true" default-state="expanded"}
 
 Таблица **EXHIBITIONS** предназначена для хранения информации о выставках.
 
@@ -327,7 +326,7 @@ CREATE TABLE exhibitions (
 </tabs>
 
 ### MUSEUM_EXHIBITIONS {id='ER-007-museum-exhibitions'}
-{collapsible="true"}
+{collapsible="true" default-state="expanded"}
 
 Таблица **MUSEUM_EXHIBITIONS** представляет собой схему, которая используется для установления связи между музеями и выставками, которые они проводят или в которых участвуют.
 
@@ -366,7 +365,7 @@ CREATE TABLE museum_exhibitions (
 </tabs>
 
 ### MUSEUM_PHOTOS {id='ER-008-museum-photos'}
-{collapsible="true"}
+{collapsible="true" default-state="expanded"}
 
 Таблица **MUSEUM_PHOTOS** предназначена для хранения фотографий, связанных с определенными музеями.
 
@@ -410,7 +409,7 @@ CREATE TABLE museum_photos (
 </tabs>
 
 ### EXHIBITS {id='ER-009-exhibits'}
-{collapsible="true"}
+{collapsible="true" default-state="expanded"}
 
 Таблица **EXHIBITS** предназначена для хранения информации о различных экспонатах, которые могут быть представлены на выставках.
 
@@ -463,7 +462,7 @@ CREATE TABLE exhibits (
 </tabs>
 
 ### EXHIBITION_EXHIBITS {id='ER-010-exhibition_exhibits'}
-{collapsible="true"}
+{collapsible="true" default-state="expanded"}
 
 Таблица **EXHIBITION_EXHIBITS** определяет связи между выставками (таблица "exhibitions") и экспонатами (таблица "exhibits"). Она позволяет организовать отношения "многие ко многим" между выставками и экспонатами.
 
@@ -501,7 +500,7 @@ CREATE TABLE exhibition_exhibits (
 </tabs>
 
 ### TICKETS {id='ER-011-tickets'}
-{collapsible="true"}
+{collapsible="true" default-state="expanded"}
 
 Таблица **TICKETS** предназначена для хранения информации о билетах, которые используются для посещения выставок или музеев
 
@@ -550,7 +549,7 @@ CREATE TABLE tickets (
 </tabs>
 
 ### LOCATIONS {id='ER-012-locations'}
-{collapsible="true"}
+{collapsible="true" default-state="expanded"}
 
 Таблица **LOCATIONS** предназначена для хранения информации о различных местоположениях, которые могут использоваться в контексте выставок или музеев
 
@@ -594,7 +593,7 @@ CREATE TABLE locations (
 </tabs>
 
 ### CHECKLIST_ITEMS {id='ER-013-checklist-items'}
-{collapsible="true"}
+{collapsible="true" default-state="expanded"}
 
 Таблица **CHECKLIST_ITEMS** представляет собой список элементов чеклиста, которые должны быть проверены во время посещения музея или выставки. Каждый элемент чеклиста связан с определенным посещением и экспонатом и содержит информацию о его описании, времени начала выполнения и статусе выполнения.
 
@@ -651,7 +650,7 @@ CREATE TABLE checklist_items (
 </tabs>
 
 ### NEWS {id='ER-014-news'}
-{collapsible="true"}
+{collapsible="true" default-state="expanded"}
 
 Таблица **NEWS** предназначена для хранения информации о новостях, связанных с музеями. Каждая запись в этой таблице представляет собой отдельную новость, содержащую название, описание, обложку, дату и время публикации, а также ссылку на музей, к которому она относится.
 
@@ -712,7 +711,7 @@ CREATE TABLE news (
 </tabs>
 
 ### ACCOUNT_NEWS {id='ER-014-account-news'}
-{collapsible="true"}
+{collapsible="true" default-state="expanded"}
 
 Таблица **ACCOUNT_NEWS** представляет собой связующую таблицу, которая устанавливает отношение между учетными записями пользователей (accounts) и новостными записями (news).
 
@@ -746,6 +745,51 @@ CREATE TABLE account_news (
 </tab>
 <tab title="DBML">
 <code-block lang="sql" collapsible="true" collapsed-title="Определение таблицы" src="../db/dbml/account_news.dbml">
+
+</code-block>
+</tab>
+</tabs>
+
+### ROUTE {id='ER-015-routes'}
+{collapsible="true" default-state="expanded"}
+
+Таблица **ROUTES** содержит информацию об оптимальных маршрутах посещения музея для каждого посетителя.
+
+**Задачи**
+1. **Хранение данных маршрутов**: Таблица хранит информацию о каждом маршруте, включая его уникальный идентификатор `id`, идентификатор связанного посещения `visit_id` и данные графа маршрута `graph`.
+2. **Связь с таблицей "Посещения"**: Поле `visit_id` в таблице "Маршруты" связано с таблицей "Посещения", что позволяет отслеживать, к какому посещению относится каждый маршрут.
+3. **Хранение графа маршрута**: Поле `graph` используется для хранения данных графа маршрута, который описывает оптимальный путь по музею. Эти данные могут быть представлены в виде двоичного формата, например, в виде байтового массива.
+4. **Идентификация маршрутов**: Уникальный идентификатор маршрута `id` используется для однозначной идентификации каждого маршрута в базе данных.
+
+<tabs>
+<tab title="Атрибуты">
+
+**id** `int`
+: Целочисленный идентификатор, является автоинкрементируемым первичным ключом
+
+**visit_id** `int`
+: Идентификатор посещения, ссылающийся на таблицу "Посещения" (FK, Visits). Обязательно для заполнения.
+
+**graph** `binary`
+: Двоичные данные графа, представляющие собой информацию о пути по музею, используемые для построения оптимального маршрута. Обязательно для заполнения.
+
+</tab>
+<tab title="DDL">
+<code-block lang="sql" collapsible="true" collapsed-title="Создание таблицы">
+CREATE TABLE routes (
+    id SERIAL PRIMARY KEY,
+    visit_id INTEGER REFERENCES visits(id) NOT NULL,
+    graph BYTEA NOT NULL
+);
+</code-block>
+</tab>
+<tab title="DBML">
+<code-block lang="sql" collapsible="true" collapsed-title="Определение таблицы" src="../db/dbml/routes.dbml">
+
+</code-block>
+</tab>
+<tab title="Class">
+<code-block lang="plantuml" src="../diagrams/uml/route_class.puml">
 
 </code-block>
 </tab>

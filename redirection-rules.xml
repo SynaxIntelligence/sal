@@ -158,4 +158,8 @@
         <description>Created after removal of "Заметки" from Musemium Документы</description>
         <accepts>Заметки.html</accepts>
     </rule>
+    <rule id="1086b89f">
+        <description>Created after removal of "test" from Musemium Документы</description>
+        <accepts>test.html</accepts>
+    </rule>
 </rules>

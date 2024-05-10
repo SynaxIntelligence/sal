@@ -442,7 +442,7 @@ paths:
     get:
       summary: Получить список музеев
       tags:
-        - API-001-museum-lst
+        - Museums
       responses:
         '200':
           description: Список музеев
@@ -454,6 +454,8 @@ paths:
                   $ref: '#/components/schemas/Museum'
     post:
       summary: Создать новый музей
+      tags:
+        - Museums
       requestBody:
         required: true
         content:
@@ -470,7 +472,9 @@ paths:
 
   /museums/{museumId}:
     get:
-      summary: Получить информацию о конкретном музее
+      summary: Получить информацию о музее
+      tags:
+        - Museums
       parameters:
         - name: museumId
           in: path
@@ -489,6 +493,8 @@ paths:
   /exhibitions:
     get:
       summary: Получить список выставок
+      tags:
+        - Exhibitions
       responses:
         '200':
           description: Список выставок
@@ -500,6 +506,8 @@ paths:
                   $ref: '#/components/schemas/Exhibition'
     post:
       summary: Создать новую выставку
+      tags:
+        - Exhibitions
       requestBody:
         required: true
         content:
@@ -513,10 +521,36 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Exhibition'
+  /exhibitions/{exhibitionId}:
+    get:
+      summary: Получить подробную информацию о выставке
+      tags:
+        - Exhibitions
+      description: Возвращает подробную информацию о выставке по ее идентификатору.
+      parameters:
+        - name: exhibitionId
+          in: path
+          description: Идентификатор выставки
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Подробная информация о выставке успешно получена
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Exhibition'
+        '404':
+          description: Выставка с указанным идентификатором не найдена
+        '500':
+          description: Ошибка сервера при получении подробной информации о выставке
 
-  /artworks:
+  /exhibits:
     get:
       summary: Получить список произведений искусства
+      tags:
+        - Exhibits
       responses:
         '200':
           description: Список произведений искусства
@@ -525,26 +559,56 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Artwork'
+                  $ref: '#/components/schemas/Exhibit'
     post:
       summary: Создать новое произведение искусства
+      tags:
+        - Exhibits
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Artwork'
+              $ref: '#/components/schemas/Exhibit'
       responses:
         '200':
           description: Произведение искусства успешно создано
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Artwork'
+                $ref: '#/components/schemas/Exhibit'
+
+  /exhibits/{exhibitId}:
+    get:
+      summary: Получить подробную информацию о экспонате
+      tags:
+        - Exhibits
+      description: Возвращает подробную информацию об экспонате по его идентификатору.
+      parameters:
+        - name: exhibitId
+          in: path
+          description: Идентификатор экспоната
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Подробная информация об экспонате успешно получена
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Exhibit'
+        '404':
+          description: Экспонат с указанным идентификатором не найден
+        '500':
+          description: Ошибка сервера при получении подробной информации об экспонате
+
 
   /tickets:
     get:
       summary: Получить список билетов
+      tags:
+        - Tickets
       responses:
         '200':
           description: Список билетов
@@ -556,6 +620,8 @@ paths:
                   $ref: '#/components/schemas/Ticket'
     post:
       summary: Создать новый билет
+      tags:
+        - Tickets
       requestBody:
         required: true
         content:
@@ -570,9 +636,55 @@ paths:
               schema:
                 $ref: '#/components/schemas/Ticket'
 
+  /tickets/{ticketId}:
+    get:
+      summary: Получение информации о билете к посещению музея
+      tags:
+        - Tickets
+      description: Возвращает информацию о билете к посещению музея по его идентификатору.
+      parameters:
+        - name: ticketId
+          in: path
+          description: Идентификатор билета к посещению музея
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Информация о билете к посещению музея
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Ticket'
+        '404':
+          description: Билет с указанным идентификатором не найден
+        '500':
+          description: Ошибка сервера при получении информации о билете
+    delete:
+      summary: Удаление билета к посещению музея
+      tags:
+        - Tickets
+      description: Удаляет информацию о билете к посещению музея по его идентификатору.
+      parameters:
+        - name: ticketId
+          in: path
+          description: Идентификатор билета к посещению музея
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Билет успешно удален
+        '404':
+          description: Билет с указанным идентификатором не найден
+        '500':
+          description: Ошибка сервера при удалении билета
+
   /checklists:
     get:
       summary: Получить список чеклистов
+      tags:
+        - Checklist
       responses:
         '200':
           description: Список чеклистов
@@ -584,6 +696,8 @@ paths:
                   $ref: '#/components/schemas/Checklist'
     post:
       summary: Создать новый чеклист
+      tags:
+        - Checklist
       requestBody:
         required: true
         content:
@@ -601,6 +715,8 @@ paths:
   /news:
     get:
       summary: Получить список новостей
+      tags:
+        - News
       responses:
         '200':
           description: Список новостей
@@ -612,6 +728,8 @@ paths:
                   $ref: '#/components/schemas/News'
     post:
       summary: Создать новую новость
+      tags:
+        - News
       requestBody:
         required: true
         content:
@@ -626,9 +744,32 @@ paths:
               schema:
                 $ref: '#/components/schemas/News'
 
+  /news/{newsId}:
+    put:
+      summary: Отметить новость прочитанной
+      tags:
+        - News
+      description: Помечает новость прочитанной по её идентификатору.
+      parameters:
+        - name: newsId
+          in: path
+          description: Идентификатор новости
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Новость успешно помечена как прочитанная
+        '404':
+          description: Новость с указанным идентификатором не найдена
+        '500':
+          description: Ошибка сервера при отметке новости как прочитанной
+
   /checklists/{checklistId}:
     patch:
       summary: Изменение чеклиста
+      tags:
+        - Checklist
       parameters:
         - name: checklistId
           in: path
@@ -646,9 +787,31 @@ paths:
         '200':
           description: Чеклист успешно изменен
 
+    delete:
+      summary: Удаление чеклиста о посещении музея
+      tags:
+        - Checklist
+      description: Удаляет чеклист о посещении музея по его идентификатору.
+      parameters:
+        - name: checklistId
+          in: path
+          description: Идентификатор чеклиста о посещении музея
+          required: true
+          schema:
+            type: integer
+      responses:
+        '204':
+          description: Чеклист успешно удален
+        '404':
+          description: Чеклист с указанным идентификатором не найден
+        '500':
+          description: Ошибка сервера при удалении чеклиста
+
   /routes/optimal:
     post:
       summary: Построение оптимального маршрута
+      tags:
+        - Route
       requestBody:
         required: true
         content:
@@ -667,8 +830,30 @@ paths:
           description: Оптимальный маршрут успешно построен
 
   /routes/{routeId}:
+    get:
+      summary: Получить маршрут по идентификатору
+      description: Возвращает информацию о маршруте по идентификатору.
+      tags:
+        - Route
+      parameters:
+        - name: routeId
+          in: path
+          required: true
+          description: Идентификатор маршрута
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Маршрут найден
+        '404':
+          description: Маршрут не найден
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+
     patch:
       summary: Корректировка маршрута
+      tags:
+        - Route
       parameters:
         - name: routeId
           in: path
@@ -688,6 +873,8 @@ paths:
 
     delete:
       summary: Удаление маршрута
+      tags:
+        - Route
       parameters:
         - name: routeId
           in: path
@@ -764,9 +951,6 @@ components:
           type: integer
           format: int64
           description: Идентификатор пользователя, к которому привязана учетная запись
-        firstName:
-          type: string
-          description: Имя владельца учетной записи
         isActive:
           type: boolean
           description: Флаг активности учетной записи
@@ -835,7 +1019,7 @@ components:
         end_date:
           type: string
           format: date
-    Artwork:
+    Exhibit:
       type: object
       properties:
         id:
@@ -879,6 +1063,10 @@ components:
           type: string
         text:
           type: string
+        isRead:
+          type: boolean
+        isSaved:
+          type: boolean
         publication_date:
           type: string
           format: date-time

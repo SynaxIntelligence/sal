@@ -10,7 +10,8 @@
         <download-title>Musemium</download-title>
         <download-page>http://musemium.ru/</download-page>
         <showDownloadButton>true</showDownloadButton>
-        <versions-switcher>http://127.0.0.1:59153/sal_awh_36/help-versions.json</versions-switcher>
+        <versions-switcher>http://127.0.0.1:63342/sal_awh_36/help-versions.json</versions-switcher>
+<!--        <versions-switcher>https://synaxintelligence.github.io/sal/help-versions.json</versions-switcher>-->
     </variables>
 
     <build-profile instance="0.1">

@@ -1,4 +1,5 @@
 # Swagger документация
+<show-structure depth="10"/>
 
 > [Swagger Hub](https://app.swaggerhub.com/apis/SynaxIntelligence/Musemium/1.0.0)
 
@@ -6,9 +7,3 @@
 
 <api-doc openapi-path="../api/museum.yaml"/>
 
-Ссылка на swagger
-<seealso>
-    <category ref="docs">        
-        <a href="https://app.swaggerhub.com/apis/SynaxIntelligence/Musemium/1.0.0">Ссылка на исходник документации</a>        
-    </category>
-</seealso>

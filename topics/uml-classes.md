@@ -1,12 +1,79 @@
 # Диаграмма классов
+<show-structure depth="2"/>
 
-[//]: # (https://plantuml.com/ru/class-diagram)
-Составьте диаграмму классов. Определите основные сущности системы, пропишите атрибуты и методы,
-расставьте отношения между классами и их мощность.
+## Описание
 
-[//]: # (> [Сервер]&#40;https://www.plantuml.com/plantuml/uml/ZPPjQzim4CVVwrDeVbCOE6l7zgQKGja35BOnrcrlnYYAV8j5PCjOShPkvBjF3tPioPBZG8Yj-zt_JdSwEv8I3lXoynfn-AMm4hXbkrBXWhL05HCradjMDwGb5UQi1lNK01QjAWMw62sK4odlb6hPjbDmJqNzmFvgMPH2tejQMUJg9K8tKZrnk4KMUSl8pl3_47O-zifyIY05jATRZ4UHL_wQaSDRmOj--OZCzuXkNlIHK4Fedkm0Pnyx2Lt5kYhJmkWPgodl2i24Kj7Lwj5ci6cwYeysMWBTSoRL8rDGHH7uKx8jKqisNTgecGjAaiRAPhjaQagXH1IeuRUC6XIZUuZdgZNRj24Twy2altlR2DVExyRs0Es1KJ0r7ng4yJSjYlFS_dussZrrRSB96PAsthdk-O0bV0lEhZAS_oY8BA7ucT_Q-nwvnaqh3goOI4zpchjURZRFiv6R-5i1Tz3EU3ie2ErxvffsAuaIpV5tfnCNgOZNZaHQbWcoylnCb3V3MCnJch7H1aN9h_PmdWFFx35CBRNF4tUl1pjiu2n2IcK4WvBD5IRTYQJjMyw4YyUQ1lhGFraYaRmgfm8vA2nBe1euvwFx0CO78prRvhqKJaXqmZxf1zmA1OC5nPfwZlCLrEbYyloGBa3k3OXSHFfb4yfnBaY8kTNnfAo0RJ5wRkAuJZZjCB7qbxsBssn0kyEnH7Z3bGJrrHUX_o3uwQtERPaVZg1ZXxjLiEdRGaUF_m40&#41;)
-> [SVG](https://www.plantuml.com/plantuml/uml/ZPPjQzim4CVVwrDeVbCOE6l7zgQKGja35BOnrcrlnYYAV8j5PCjOShPkvBjF3tPioPBZG8Yj-zt_JdSwEv8I3lXoynfn-AMm4hXbkrBXWhL05HCradjMDwGb5UQi1lNK01QjAWMw62sK4odlb6hPjbDmJqNzmFvgMPH2tejQMUJg9K8tKZrnk4KMUSl8pl3_47O-zifyIY05jATRZ4UHL_wQaSDRmOj--OZCzuXkNlIHK4Fedkm0Pnyx2Lt5kYhJmkWPgodl2i24Kj7Lwj5ci6cwYeysMWBTSoRL8rDGHH7uKx8jKqisNTgecGjAaiRAPhjaQagXH1IeuRUC6XIZUuZdgZNRj24Twy2altlR2DVExyRs0Es1KJ0r7ng4yJSjYlFS_dussZrrRSB96PAsthdk-O0bV0lEhZAS_oY8BA7ucT_Q-nwvnaqh3goOI4zpchjURZRFiv6R-5i1Tz3EU3ie2ErxvffsAuaIpV5tfnCNgOZNZaHQbWcoylnCb3V3MCnJch7H1aN9h_PmdWFFx35CBRNF4tUl1pjiu2n2IcK4WvBD5IRTYQJjMyw4YyUQ1lhGFraYaRmgfm8vA2nBe1euvwFx0CO78prRvhqKJaXqmZxf1zmA1OC5nPfwZlCLrEbYyloGBa3k3OXSHFfb4yfnBaY8kTNnfAo0RJ5wRkAuJZZjCB7qbxsBssn0kyEnH7Z3bGJrrHUX_o3uwQtERPaVZg1ZXxjLiEdRGaUF_m40)
+Диаграмма классов представляет собой схематическое изображение классов, их атрибутов и методов, а также связей между классами. Она помогает понять структуру и взаимодействие компонентов системы.
 
-<code-block lang="plantuml" collapsible="true" src="../diagrams/uml/uml_diagram.puml">
+### Классы
+
+1. **User**: Представляет пользователя приложения.
+2. **Account**: Представляет учетную запись пользователя, используемую для аутентификации.
+3. **Museum**: Представляет музей, который пользователь может посетить.
+4. **Exhibit**: Представляет отдельный экспонат или выставку в музее.
+5. **Visit**: Представляет посещение музея, связывая пользователя с конкретным музеем и временем посещения.
+6. **Route**: Представляет маршрут посещения музея, оптимизированный для пользователя.
+7. **Checklist**: Представляет чек-лист или заметки о посещении музея, созданные пользователем.
+8. **Ticket**: Представляет билет на посещение музея, прикрепленный к посещению.
+9. **Exhibition**: Представляет выставку в музее.
+10. **MuseumPhoto**: Представляет фотографии музея, добавленные пользователями.
+11. **UserPhoto**: Представляет фотографии, загруженные пользователями.
+12. **Location**: Представляет местоположение, связанное с музеем или пользователем.
+
+### Взаимодействие
+
+1. **User**:
+    - Может создавать учетную запись (**Account**).
+    - Может просматривать список музеев (**Museum**).
+    - Может просматривать подробную информацию о музее (**Museum**).
+    - Может планировать посещение музея, создавая маршрут (**Route**) и прикрепляя билет (**Ticket**).
+    - Может создавать чек-лист или заметки о посещении (**Checklist**).
+    - Может просматривать новости о новых выставках (**Exhibition**).
+
+2. **Account**:
+    - Используется для аутентификации пользователя (**User**).
+
+3. **Museum**:
+    - Предоставляет информацию о музее.
+    - Может содержать список выставок (**Exhibition**) и экспонатов (**Exhibit**).
+    - Может иметь фотографии музея (**MuseumPhoto**).
+
+4. **Exhibit**:
+    - Принадлежит к музею (**Museum**).
+    - Может быть частью выставки (**Exhibition**).
+
+5. **Visit**:
+    - Связывает пользователя (**User**) с музеем (**Museum**) и временем посещения.
+    - Может иметь прикрепленный билет (**Ticket**).
+
+6. **Route**:
+    - Создается пользователем (**User**) для планирования оптимального маршрута посещения музея (**Museum**).
+
+7. **Checklist**:
+    - Создается пользователем (**User**) для отслеживания посещенных экспонатов и выполненных задач.
+
+8. **Ticket**:
+    - Прикрепляется к посещению музея (**Visit**).
+
+9. **Exhibition**:
+    - Может содержать информацию о новых выставках, просматриваемых пользователем (**User**).
+    - Связан с музеем (**Museum**).
+
+10. **MuseumPhoto**:
+    - Предоставляет изображения музея, загружаемые пользователями (**User**).
+
+11. **UserPhoto**:
+    - Загружается пользователем (**User**) и может быть связано с музеем (**Museum**) или пользователем (**User**).
+
+12. **Location**:
+    - Может использоваться для определения местоположения экспоната (**Exhibit**) или музея (**Museum**).
+
+### Диаграмма
+{collapsible="true" default-state="expanded"}
+
+> [SVG](%host%/images/!uml_diagram.svg)
+
+<code-block lang="plantuml" src="../diagrams/uml/uml_diagram.puml">
+
 
 </code-block>

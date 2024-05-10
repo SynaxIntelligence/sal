@@ -9,14 +9,12 @@
     <toc-element topic="main.md">
     </toc-element>
     <toc-element topic="requirements.md"/>
-    <toc-element topic="customer-journey-map.md" hidden="true" />
     <toc-element topic="use-cases.md"/>
-    <toc-element topic="req-form.md"/>
     <toc-element topic="uml-classes.md"/>
     <toc-element topic="er-diagram.md"/>
     <toc-element topic="proto.md"/>
     <toc-element topic="openapi.md"/>
-    <toc-element topic="bpm.md" hidden="true"/>
+    <toc-element topic="req-form.md"/>
     <toc-element topic="spec.md">
         <toc-element topic="introduction.md"/>
         <toc-element topic="general.md"/>
@@ -26,4 +24,6 @@
     </toc-element>
     <toc-element topic="instructions.md" hidden="true"/>
     <toc-element topic="FAQ.md" hidden="true"/>
+    <toc-element hidden="true" topic="bpm.md"/>
+    <toc-element topic="wlibs.md" hidden="true"/>
 </instance-profile>

@@ -83,17 +83,10 @@
 Чек-лист посещения
 : Список залов и экспонатов, которые пользователь планирует посетить в музее, созданный внутри приложения.
 
-## Ссылки
-
-(Имеется в виду документация, которая упоминается в спецификации - федеральные законы, внутренние положения и регламенты, отраслевые правила,
-документация на связанное ПО и т. д. Ссылки на веб-страницы - не обязательны, но желательны)
-
 <seealso>
-<category ref="docs">
-       <a href="http://127.0.0.1:81/storage/%project_id%.ФРМ_%role_model_version%.pdf" target="_blank">Функционально-ролевая модель</a>
-       <a href="http://127.0.0.1:81/storage/%project_id%.Дизайн-проект_%design_project_version%.pdf" target="_blank">Дизайн-проект</a>
-       <a href="https://xd.adobe.com/view/747a45c8-a9ed-4841-a836-42d3edf42ac2-2129/grid" target="_blank">Дизайн-макет</a>        
-       <a href="http://127.0.0.1:81/storage/%project_id%.Solution_arch_%solution_architecture_version%.pdf" target="_blank">Архитектура решения</a>
-       <a href="http://127.0.0.1:81/storage/%project_id%.Спецификация_%specification_version%.pdf" target="_blank">Спецификация</a>
+<category ref="related">
+       <a href="https://www.consultant.ru/document/cons_doc_LAW_61801/" target="_blank">Федеральный закон "О персональных данных" от 27.07.2006 N 152-ФЗ (последняя редакция)</a>
+       <a href="https://www.consultant.ru/document/cons_doc_LAW_61798/" target="_blank">Федеральный закон от 27.07.2006 № 149-ФЗ «Об информации, информационных технологиях и о защите информации»</a>
+       <a href="https://culture.gov.ru/documents/pasport-gosudarstvennoy-programmy-kompleksnoy-programmy-rossiyskoy-federatsii19032024/" target="_blank">Паспорт Государственной программы (комплексной программы) Российской Федерации «Развитие культуры»</a>        
 </category>
 </seealso>

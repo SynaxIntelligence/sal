@@ -4,19 +4,13 @@ class Route {
   - id: int
   --
   + visitId: int
-  + exhibitId: int
-  + name: String
-  + startDate: Timestamp
-  + done: boolean
+  + graph: byte[]
 }
 
 class RouteService {
-  + getChecklistItem (id: int): <ChecklistItem>
-  + addChecklistItem (ticket: <Ticket>): void
-  + updateChecklistItem (id: int, newChecklistItem: <ChecklistItem>): <ChecklistItem>
-  + removeChecklistItem (id: int): void
-  --
-  + getChecklistItemList (visitId: int): List<ChecklistItem>
-  + getChecklistItemList (exhibitId: int): List<ChecklistItem>
+  + getRoute (id: int): <Route>
+  + addRoute (route: <Route>): void
+  + updateRoute (id: int, newRoute: <Route>): <Route>
+  + removeRoute (id: int): void
 }
 @enduml
